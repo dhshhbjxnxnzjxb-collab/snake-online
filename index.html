@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kalp</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+html,body{
+  width:100%;height:100%;
+  background:#000;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  cursor:none;
+}
+
+/* ── BACKGROUND — static, no repaints ── */
+.bg{
+  position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 40%,rgba(255,20,80,.07) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 60% at 70% 60%,rgba(120,0,255,.06) 0%,transparent 70%),
+    #000;
+  will-change:auto;
+}
+
+/* ── BOKEH — will-change:transform only, GPU composited ── */
+.bokeh{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.bk{
+  position:absolute;border-radius:50%;
+  will-change:transform;
+  animation:bkFloat ease-in-out infinite;
+}
+.bk:nth-child(1){width:200px;height:200px;left:3%;top:8%;background:radial-gradient(circle,rgba(255,40,90,.45) 0%,transparent 70%);filter:blur(35px);opacity:.14;animation-duration:7s}
+.bk:nth-child(2){width:130px;height:130px;left:78%;top:6%;background:radial-gradient(circle,rgba(160,0,255,.4) 0%,transparent 70%);filter:blur(28px);opacity:.12;animation-duration:9s;animation-delay:1s}
+.bk:nth-child(3){width:160px;height:160px;left:62%;top:58%;background:radial-gradient(circle,rgba(255,40,80,.35) 0%,transparent 70%);filter:blur(40px);opacity:.09;animation-duration:11s;animation-delay:2s}
+.bk:nth-child(4){width:110px;height:110px;left:18%;top:68%;background:radial-gradient(circle,rgba(255,100,150,.45) 0%,transparent 70%);filter:blur(22px);opacity:.13;animation-duration:6s;animation-delay:.5s}
+@keyframes bkFloat{
+  0%,100%{transform:translateY(0)}
+  50%    {transform:translateY(-24px)}
+}
+
+/* ── SCENE ── */
+.scene{
+  position:relative;
+  width:520px;height:520px;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ── RAYS — GPU spin only ── */
+.rays{
+  position:absolute;
+  left:50%;top:46%;
+  width:560px;height:560px;
+  pointer-events:none;
+  will-change:transform;
+  animation:raysSpin 18s linear infinite;
+  transform:translate(-50%,-50%);
+}
+.ray{
+  position:absolute;
+  left:50%;top:50%;
+  width:1.5px;
+  transform-origin:0 0;
+  border-radius:2px;
+  will-change:opacity;
+}
+.ray:nth-child(1){height:220px;transform:rotate(0deg)  translateX(-.75px);background:linear-gradient(to bottom,transparent,rgba(255,60,110,.22),transparent);animation:rayF 2.1s ease-in-out infinite}
+.ray:nth-child(2){height:180px;transform:rotate(40deg) translateX(-.75px);background:linear-gradient(to bottom,transparent,rgba(255,100,150,.18),transparent);animation:rayF 2.8s ease-in-out infinite .3s}
+.ray:nth-child(3){height:240px;transform:rotate(80deg) translateX(-.75px);background:linear-gradient(to bottom,transparent,rgba(255,60,110,.20),transparent);animation:rayF 2.4s ease-in-out infinite .7s}
+.ray:nth-child(4){height:200px;transform:rotate(120deg)translateX(-.75px);background:linear-gradient(to bottom,transparent,rgba(200,60,255,.15),transparent);animation:rayF 3.1s ease-in-out infinite .1s}
+.ray:nth-child(5){height:230px;transform:rotate(160deg)translateX(-.75px);background:linear-gradient(to bottom,transparent,rgba(255,60,110,.22),transparent);animation:rayF 2.6s ease-in-out infinite .9s}
+.ray:nth-child(6){height:170px;transform:rotate(200deg)translateX(-.75px);background:linear-gradient(to bottom,transparent,rgba(255,120,170,.16),transparent);animation:rayF 2.2s ease-in-out infinite .5s}
+.ray:nth-child(7){height:210px;transform:rotate(240deg)translateX(-.75px);background:linear-gradient(to bottom,transparent,rgba(255,60,110,.20),transparent);animation:rayF 2.9s ease-in-out infinite 1.2s}
+.ray:nth-child(8){height:190px;transform:rotate(280deg)translateX(-.75px);background:linear-gradient(to bottom,transparent,rgba(255,60,110,.18),transparent);animation:rayF 2.3s ease-in-out infinite .2s}
+.ray:nth-child(9){height:200px;transform:rotate(320deg)translateX(-.75px);background:linear-gradient(to bottom,transparent,rgba(160,60,255,.14),transparent);animation:rayF 3.4s ease-in-out infinite .6s}
+@keyframes rayF{0%,100%{opacity:.22}50%{opacity:.8}}
+@keyframes raysSpin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* ── HALOS ── */
+.halo{
+  position:absolute;
+  left:50%;top:47%;
+  width:360px;height:340px;
+  will-change:transform,opacity;
+  animation:haloPulse 3s ease-in-out infinite;
+}
+.halo-1{
+  clip-path:path('M180 308 C155 290 16 222 16 105 C16 48 57 10 104 10 C135 10 160 28 180 52 C200 28 225 10 256 10 C303 10 344 48 344 105 C344 222 205 290 180 308Z');
+  background:radial-gradient(ellipse 80% 75% at 38% 32%,#ff4d7a 0%,#cc0038 30%,#880022 60%,transparent 85%);
+  filter:blur(26px);opacity:.65;
+  transform:translate(-50%,-50%);
+}
+.halo-2{
+  background:radial-gradient(ellipse 70% 65% at 50% 45%,#ff1050 0%,transparent 70%);
+  filter:blur(50px);opacity:.38;
+  transform:translate(-50%,-50%) scale(1.35);
+  border-radius:50%;
+}
+.halo-3{
+  background:radial-gradient(ellipse 55% 55% at 50% 50%,#ff0040 0%,transparent 60%);
+  filter:blur(85px);opacity:.20;
+  transform:translate(-50%,-50%) scale(1.8);
+  border-radius:50%;
+}
+.halo-4{
+  background:radial-gradient(ellipse 55% 50% at 60% 55%,#8800ff 0%,transparent 65%);
+  filter:blur(65px);opacity:.12;
+  transform:translate(-50%,-50%) scale(1.6);
+  border-radius:50%;
+}
+@keyframes haloPulse{
+  0%,100%{opacity:var(--o,1)}
+  50%    {opacity:calc(var(--o,1)*1.4)}
+}
+
+/* ── HEART ── */
+.heart{
+  position:relative;
+  width:360px;height:340px;
+  will-change:transform;
+  animation:breathe 3s ease-in-out infinite;
+  transform-origin:50% 57%;
+  z-index:2;
+  cursor:pointer;
+}
+@keyframes breathe{
+  0%,100%{transform:scale(1)}
+  50%    {transform:scale(1.025)}
+}
+
+/* All layers GPU-composited */
+.layer{
+  position:absolute;inset:0;
+  clip-path:path('M180 308 C155 290 16 222 16 105 C16 48 57 10 104 10 C135 10 160 28 180 52 C200 28 225 10 256 10 C303 10 344 48 344 105 C344 222 205 290 180 308Z');
+  will-change:transform,opacity;
+}
+.l-base{background:radial-gradient(ellipse 70% 65% at 36% 30%,#ff5580 0%,#dd0040 22%,#990025 48%,#500010 72%,#1c0008 100%)}
+.l-depth{background:radial-gradient(ellipse 90% 65% at 72% 78%,rgba(0,0,0,.65) 0%,transparent 65%),radial-gradient(ellipse 55% 40% at 60% 90%,rgba(0,0,0,.5) 0%,transparent 55%);mix-blend-mode:multiply}
+.l-foil{
+  background:conic-gradient(from 0deg at 42% 34%,rgba(255,60,100,0) 0deg,rgba(255,160,190,.14) 28deg,rgba(255,220,80,.10) 55deg,rgba(80,255,180,.12) 88deg,rgba(60,160,255,.14) 115deg,rgba(220,80,255,.12) 148deg,rgba(255,100,140,.08) 180deg,rgba(255,60,100,0) 210deg,rgba(255,60,100,0) 360deg);
+  mix-blend-mode:screen;
+  animation:foilSpin 7s linear infinite;
+  transform-origin:42% 34%;
+}
+@keyframes foilSpin{from{transform:rotate(0deg) scale(1.5)}to{transform:rotate(360deg) scale(1.5)}}
+.l-aurora{
+  background:linear-gradient(128deg,transparent 0%,rgba(255,255,255,0) 28%,rgba(255,200,220,.20) 40%,rgba(200,100,255,.22) 50%,rgba(80,200,255,.16) 60%,transparent 72%);
+  mix-blend-mode:screen;
+  animation:auroraSweep 4.5s ease-in-out infinite;
+}
+@keyframes auroraSweep{
+  0%  {opacity:0;transform:translateX(-80px) skewX(-8deg)}
+  18% {opacity:1}
+  50% {opacity:.75;transform:translateX(10px) skewX(0deg)}
+  82% {opacity:0;transform:translateX(80px) skewX(8deg)}
+  100%{opacity:0;transform:translateX(-80px) skewX(-8deg)}
+}
+.l-rim{background:radial-gradient(ellipse 10% 60% at 4% 48%,rgba(255,160,190,.60) 0%,transparent 100%),radial-gradient(ellipse 8% 45% at 96% 42%,rgba(255,80,120,.30) 0%,transparent 100%),radial-gradient(ellipse 55% 8% at 50% 1%,rgba(255,180,210,.35) 0%,transparent 100%);mix-blend-mode:screen}
+.l-gloss{background:radial-gradient(ellipse 52% 40% at 32% 25%,rgba(255,255,255,.58) 0%,rgba(255,210,220,.20) 38%,transparent 68%);mix-blend-mode:screen}
+.l-spec{background:radial-gradient(circle 22px at 26% 23%,rgba(255,255,255,.92) 0%,transparent 100%),radial-gradient(circle 9px at 64% 19%,rgba(255,255,255,.65) 0%,transparent 100%),radial-gradient(circle 5px at 38% 17%,rgba(255,255,255,.45) 0%,transparent 100%);mix-blend-mode:screen}
+
+/* ── SVG OUTLINE ── */
+.heart-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.heart-outline{
+  fill:none;stroke:url(#sGrad);stroke-width:1.8;
+  will-change:opacity;
+  animation:outlineGlow 3s ease-in-out infinite;
+}
+@keyframes outlineGlow{
+  0%,100%{filter:drop-shadow(0 0 5px rgba(255,50,100,.85)) drop-shadow(0 0 12px rgba(255,50,100,.4));stroke-opacity:.75}
+  50%    {filter:drop-shadow(0 0 9px rgba(255,100,160,1)) drop-shadow(0 0 22px rgba(255,50,100,.75)) drop-shadow(0 0 50px rgba(255,0,80,.3));stroke-opacity:1}
+}
+
+/* ── ORBS (fewer, lighter) ── */
+.orbs{position:absolute;inset:0;pointer-events:none;overflow:hidden;clip-path:path('M180 308 C155 290 16 222 16 105 C16 48 57 10 104 10 C135 10 160 28 180 52 C200 28 225 10 256 10 C303 10 344 48 344 105 C344 222 205 290 180 308Z')}
+.orb{position:absolute;border-radius:50%;will-change:transform,opacity;animation:orbFloat linear infinite;opacity:0}
+.orb:nth-child(1){width:4px;height:4px;background:#fff;        left:31%;top:32%;animation-duration:3.8s}
+.orb:nth-child(2){width:3px;height:3px;background:#ffbbcc;     left:56%;top:25%;animation-duration:4.8s;animation-delay:.7s}
+.orb:nth-child(3){width:5px;height:5px;background:#ff6090;     left:21%;top:42%;animation-duration:3.3s;animation-delay:1.4s;filter:blur(1px)}
+.orb:nth-child(4){width:3px;height:3px;background:#cc80ff;     left:46%;top:28%;animation-duration:5.5s;animation-delay:1.8s}
+.orb:nth-child(5){width:3px;height:3px;background:#ffaacc;     left:37%;top:52%;animation-duration:2.9s;animation-delay:.9s}
+.orb:nth-child(6){width:6px;height:6px;background:#ff4070;     left:24%;top:35%;animation-duration:3.7s;animation-delay:2.8s;filter:blur(2px)}
+@keyframes orbFloat{
+  0%  {opacity:0;transform:translate(0,0) scale(0)}
+  12% {opacity:.9;transform:translate(-3px,-6px) scale(1)}
+  85% {opacity:.15;transform:translate(-6px,-50px) scale(.3)}
+  100%{opacity:0;transform:translate(-4px,-65px) scale(0)}
+}
+
+/* ── PRESS ANIMATIONS ── */
+.heart.pressed{animation:heartPress .15s cubic-bezier(.2,.8,.3,1) forwards !important}
+@keyframes heartPress{
+  0%  {transform:scale(1)}
+  50% {transform:scale(.78) rotate(-2deg)}
+  100%{transform:scale(.81)}
+}
+.heart.release{animation:heartRelease .5s cubic-bezier(.22,1.65,.36,1) forwards !important}
+@keyframes heartRelease{
+  0%  {transform:scale(.81)}
+  55% {transform:scale(1.13) rotate(-1deg)}
+  80% {transform:scale(.98)}
+  100%{transform:scale(1)}
+}
+
+/* ── VIGNETTE ── */
+.vig{position:fixed;inset:0;background:radial-gradient(ellipse 72% 72% at 50% 50%,transparent 38%,rgba(0,0,0,.9) 100%);pointer-events:none;z-index:10}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="bokeh">
+  <div class="bk"></div><div class="bk"></div><div class="bk"></div><div class="bk"></div>
+</div>
+
+<div class="scene">
+  <div class="rays">
+    <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+    <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+    <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+  </div>
+
+  <div class="halo halo-4"></div>
+  <div class="halo halo-3"></div>
+  <div class="halo halo-2"></div>
+  <div class="halo halo-1"></div>
+
+  <div class="heart" id="heart">
+    <div class="layer l-base"></div>
+    <div class="layer l-depth"></div>
+    <div class="layer l-foil"></div>
+    <div class="layer l-aurora"></div>
+    <div class="layer l-rim"></div>
+    <div class="layer l-gloss"></div>
+    <div class="layer l-spec"></div>
+
+    <svg class="heart-svg" viewBox="0 0 360 340" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"  stop-color="#ff99bb"/>
+          <stop offset="35%" stop-color="#ff2266"/>
+          <stop offset="65%" stop-color="#ff66a0"/>
+          <stop offset="100%" stop-color="#bb0044" stop-opacity=".5"/>
+        </linearGradient>
+      </defs>
+      <path class="heart-outline" d="M180 308 C155 290 16 222 16 105 C16 48 57 10 104 10 C135 10 160 28 180 52 C200 28 225 10 256 10 C303 10 344 48 344 105 C344 222 205 290 180 308 Z"/>
+    </svg>
+
+    <div class="orbs">
+      <div class="orb"></div><div class="orb"></div><div class="orb"></div>
+      <div class="orb"></div><div class="orb"></div><div class="orb"></div>
+    </div>
+  </div>
+</div>
+
+<div class="vig"></div>
+
+<!-- CANVAS: shockwaves + drag trail -->
+<canvas id="fx" style="position:fixed;inset:0;pointer-events:none;z-index:50"></canvas>
+
+<script>
+const heart = document.getElementById('heart');
+const canvas = document.getElementById('fx');
+const ctx = canvas.getContext('2d');
+
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight}
+resize();addEventListener('resize',resize);
+
+/* ════════════════════════════
+   TRAIL SYSTEM — canvas only
+════════════════════════════ */
+const HEART_PATH_NORM = [
+  // normalized 0-1 points of the heart path for stamping mini hearts
+];
+
+// Trail dots stored as array
+const trail = [];
+const MAX_TRAIL = 60;
+let isDragging = false;
+let lastTrailX = 0, lastTrailY = 0;
+
+// Mini heart SVG path scaled to size s, centered at 0,0
+function drawMiniHeart(ctx, x, y, s, alpha, hue){
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(s, s);
+  ctx.globalAlpha = alpha;
+  // heart path centered: original viewBox 360x340, center ~180,170
+  ctx.beginPath();
+  // translate so center is at 0,0
+  const p = new Path2D('M0 138 C-25 120 -164 68 -164 -33 C-164 -90 -123 -128 -76 -128 C-45 -128 -20 -110 0 -86 C20 -110 45 -128 76 -128 C123 -128 164 -90 164 -33 C164 68 25 120 0 138Z');
+  ctx.fillStyle = `hsla(${hue},100%,65%,1)`;
+  ctx.shadowColor = `hsla(${hue},100%,60%,.9)`;
+  ctx.shadowBlur = 12 / s;
+  ctx.fill(p);
+  ctx.restore();
+}
+
+/* ════════════════════════════
+   SHOCKWAVE RINGS
+════════════════════════════ */
+const rings = [];
+function spawnRings(x, y){
+  const b = Math.min(innerWidth, innerHeight);
+  rings.push({x,y,r:8, maxR:b*.44, alpha:1,   lw:2.2, col:[255,50,100]});
+  rings.push({x,y,r:4, maxR:b*.28, alpha:.72,  lw:1.4, col:[255,130,180]});
+  rings.push({x,y,r:2, maxR:b*.16, alpha:.48,  lw:1,   col:[210,70,255]});
+}
+
+/* ════════════════════════════
+   BURST PARTICLES — canvas only (no DOM)
+════════════════════════════ */
+const particles = [];
+const pColors = [[255,30,90],[255,80,140],[255,160,190],[255,255,255],[200,60,255],[255,100,150]];
+function spawnBurst(x, y){
+  for(let i=0;i<20;i++){
+    const a = (i/20)*Math.PI*2 + (Math.random()-.5)*.7;
+    const spd = 3 + Math.random()*7;
+    const col = pColors[Math.floor(Math.random()*pColors.length)];
+    particles.push({
+      x, y,
+      vx: Math.cos(a)*spd,
+      vy: Math.sin(a)*spd,
+      alpha: 1,
+      size: 2+Math.random()*5,
+      col,
+      decay: .025+Math.random()*.02
+    });
+  }
+}
+
+/* ════════════════════════════
+   MAIN DRAW LOOP
+════════════════════════════ */
+let rafId;
+function loop(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  let needsFrame = false;
+
+  // ── TRAIL ──
+  for(let i=trail.length-1; i>=0; i--){
+    const t = trail[i];
+    t.alpha -= .018;
+    t.size  *= .97;
+    if(t.alpha <= 0){ trail.splice(i,1); continue; }
+    needsFrame = true;
+    drawMiniHeart(ctx, t.x, t.y, t.size, t.alpha, t.hue);
+  }
+
+  // ── PARTICLES ──
+  for(let i=particles.length-1; i>=0; i--){
+    const p = particles[i];
+    p.x  += p.vx;
+    p.y  += p.vy;
+    p.vy += .18; // gravity
+    p.vx *= .97;
+    p.alpha -= p.decay;
+    if(p.alpha<=0){particles.splice(i,1);continue;}
+    needsFrame = true;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${p.col[0]},${p.col[1]},${p.col[2]},${p.alpha})`;
+    ctx.shadowColor = `rgba(${p.col[0]},${p.col[1]},${p.col[2]},.7)`;
+    ctx.shadowBlur = 8;
+    ctx.fill();
+  }
+
+  // ── RINGS ──
+  for(let i=rings.length-1; i>=0; i--){
+    const r = rings[i];
+    r.r += (r.maxR - r.r)*.10 + 2.5;
+    r.alpha -= .022;
+    if(r.alpha<=0){rings.splice(i,1);continue;}
+    needsFrame = true;
+    ctx.beginPath();
+    ctx.arc(r.x, r.y, r.r, 0, Math.PI*2);
+    ctx.strokeStyle = `rgba(${r.col[0]},${r.col[1]},${r.col[2]},${r.alpha.toFixed(3)})`;
+    ctx.lineWidth = r.lw;
+    ctx.shadowColor = `rgba(${r.col[0]},${r.col[1]},${r.col[2]},.6)`;
+    ctx.shadowBlur = 14;
+    ctx.stroke();
+  }
+
+  if(needsFrame) rafId = requestAnimationFrame(loop);
+  else rafId = null;
+}
+
+function ensureLoop(){
+  if(!rafId) rafId = requestAnimationFrame(loop);
+}
+
+/* ════════════════════════════
+   DRAG TRAIL SPAWN
+════════════════════════════ */
+function addTrailPoint(x, y){
+  const dist = Math.hypot(x-lastTrailX, y-lastTrailY);
+  if(dist < 18) return;
+  lastTrailX = x; lastTrailY = y;
+  // hue shifts as you move: map x position to hue
+  const hue = ((x / innerWidth) * 60 + 330) % 360; // stays in pink-red-purple range
+  trail.push({x, y, alpha:.75, size:.18, hue});
+  if(trail.length > MAX_TRAIL) trail.shift();
+  ensureLoop();
+}
+
+/* ════════════════════════════
+   SCREEN FLASH (canvas)
+════════════════════════════ */
+let flashAlpha = 0;
+function triggerFlash(x, y){
+  // draw 2 flash frames inline
+  flashAlpha = .28;
+  const _flash = () => {
+    if(flashAlpha <= 0) return;
+    flashAlpha -= .05;
+    const grd = ctx.createRadialGradient(x,y,0,x,y,Math.max(innerWidth,innerHeight)*.5);
+    grd.addColorStop(0, `rgba(255,80,130,${flashAlpha})`);
+    grd.addColorStop(1, 'rgba(255,80,130,0)');
+    ctx.fillStyle = grd;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    requestAnimationFrame(_flash);
+  };
+  requestAnimationFrame(_flash);
+}
+
+/* ════════════════════════════
+   PRESS LOGIC
+════════════════════════════ */
+let isDown = false;
+
+function onDown(e){
+  isDown = true;
+  heart.classList.remove('release');
+  void heart.offsetWidth;
+  heart.classList.add('pressed');
+}
+
+function onUp(e){
+  if(!isDown) return;
+  isDown = false;
+  heart.classList.remove('pressed');
+  void heart.offsetWidth;
+  heart.classList.add('release');
+  heart.addEventListener('animationend',()=>heart.classList.remove('release'),{once:true});
+
+  const r = heart.getBoundingClientRect();
+  const cx = r.left+r.width/2, cy = r.top+r.height/2;
+
+  spawnRings(cx, cy);
+  spawnBurst(cx, cy);
+  triggerFlash(cx, cy);
+  ensureLoop();
+
+  // Halo flash — just opacity, GPU only
+  document.querySelectorAll('.halo').forEach(h=>{
+    h.animate([{opacity:1,filter:'blur(18px) brightness(2.8)'},{opacity:parseFloat(getComputedStyle(h).opacity)||.4,filter:''}],
+      {duration:350,easing:'ease-out',fill:'none'});
+  });
+  // Screen shake via transform on scene — GPU only
+  document.querySelector('.scene').animate([
+    {transform:'translate(-6px,-4px)'},
+    {transform:'translate(5px,5px)'},
+    {transform:'translate(-4px,2px)'},
+    {transform:'translate(3px,-3px)'},
+    {transform:'translate(0,0)'}
+  ],{duration:220,easing:'ease-out'});
+}
+
+/* ════════════════════════════
+   GLOBAL DRAG — anywhere on page
+════════════════════════════ */
+let mouseDown = false;
+
+addEventListener('mousedown', e=>{
+  mouseDown = true;
+  lastTrailX = e.clientX; lastTrailY = e.clientY;
+  if(e.target.closest('#heart')) onDown(e);
+});
+addEventListener('mouseup', e=>{
+  mouseDown = false;
+  if(isDown) onUp(e);
+});
+addEventListener('mousemove', e=>{
+  if(mouseDown) addTrailPoint(e.clientX, e.clientY);
+});
+
+addEventListener('touchstart', e=>{
+  mouseDown = true;
+  const t = e.touches[0];
+  lastTrailX = t.clientX; lastTrailY = t.clientY;
+  if(e.target.closest('#heart')){ e.preventDefault(); onDown(e); }
+},{passive:false});
+addEventListener('touchend', e=>{
+  mouseDown = false;
+  if(isDown) onUp(e);
+});
+addEventListener('touchmove', e=>{
+  const t = e.touches[0];
+  addTrailPoint(t.clientX, t.clientY);
+},{passive:true});
+</script>
+
+</body>
+</html>
