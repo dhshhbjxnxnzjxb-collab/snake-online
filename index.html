@@ -1,14 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>10. Sınıf Tarih – Akıllı Çalışma Kağıdı</title>
+<title>10. Sınıf Tarih – Tam Çalışma Kağıdı</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ===== GLOBAL ===== */
 body {
   font-family: 'Source Sans 3', sans-serif;
   background: #f0ede8;
@@ -17,91 +17,6 @@ body {
   line-height: 1.75;
   min-height: 100vh;
 }
-
-/* ===== HAMBURGER MENU (SOL ÜST) ===== */
-.hamburger-menu {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-  background: #1c1a16;
-  border-radius: 40px;
-  padding: 8px 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  cursor: pointer;
-  transition: all 0.2s;
-  border: 1px solid #c0a060;
-}
-.hamburger-menu:hover {
-  background: #2a251f;
-}
-.hamburger-icon {
-  font-size: 24px;
-  color: #c0a060;
-}
-.menu-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #f0ede8;
-  letter-spacing: 1px;
-}
-/* dropdown panel */
-.menu-panel {
-  position: fixed;
-  top: 70px;
-  left: 20px;
-  background: #1c1a16;
-  border-radius: 20px;
-  padding: 18px 12px;
-  width: 260px;
-  z-index: 999;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  backdrop-filter: blur(2px);
-  border: 1px solid #c0a060;
-  display: none;
-  flex-direction: column;
-  gap: 12px;
-}
-.menu-panel.show {
-  display: flex;
-}
-.ozet-buton {
-  background: #2c2a26;
-  border: none;
-  color: #f0ede8;
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 12px 18px;
-  border-radius: 40px;
-  text-align: left;
-  cursor: pointer;
-  transition: 0.15s;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.ozet-buton i { font-size: 18px; width: 24px; }
-.ozet-buton:hover { background: #c0a060; color: #1c1a16; }
-.ozet-buton.aktif-ozet { background: #c0a060; color: #1c1a16; }
-.ana-kagit-buton {
-  background: #3a2a1a;
-  border: 1px solid #c0a060;
-  color: #f0e0c0;
-  margin-top: 8px;
-}
-.ana-kagit-buton:hover { background: #c0a060; color: #1c1a16; }
-.kapat-panel {
-  text-align: right;
-  font-size: 12px;
-  color: #aaa;
-  cursor: pointer;
-  margin-bottom: 5px;
-}
-.kapat-panel span { background: #333; padding: 4px 12px; border-radius: 20px; display: inline-block; }
 
 /* ===== NAVİGASYON ===== */
 .nav-bar {
@@ -156,11 +71,13 @@ body {
 }
 .nav-tab:hover { color: #ccc; }
 .nav-tab.active { color: #fff; border-bottom-color: #c0a060; }
+.nav-tab .tab-icon { font-size: 16px; }
+
+/* ===== TAB PANELS ===== */
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 
-/* ===== ORJINAL SAYFA STILLERI (tüm stiller korundu) ===== */
-.page1, .page2, .ordu-tree, .toprak-tree, .savas-grid, .padisah-section vb. aynı kalır */
+/* ===== SAYFA 1: ORDU/TOPRAK/HUKUK ===== */
 :root {
   --bg: #faf9f6;
   --paper: #ffffff;
@@ -175,6 +92,7 @@ body {
   --yardimci: #e8d0c8;
   --shadow: 0 2px 12px rgba(0,0,0,0.07);
 }
+
 .page1 {
   max-width: 880px;
   margin: 0 auto;
@@ -183,6 +101,7 @@ body {
   box-shadow: var(--shadow);
   min-height: 100vh;
 }
+
 .p1-h1 {
   font-family: 'Crimson Pro', serif;
   font-size: 24px;
@@ -210,292 +129,644 @@ body {
   color: var(--accent);
   margin: 26px 0 14px;
 }
-.ordu-tree, .toprak-tree, .donem-block, .ozellik-box, .fayda-grid, .sivil-blok, .info-arrow, .alim-block, .gorev-box { /* tüm orijinal stiller devam */
-  transition: all 0.1s ease;
-}
-/* page2 stilleri */
-.page2 { max-width: 920px; margin: 0 auto; padding: 28px 16px 56px; }
-.p2-header { background: #1c1a16; color: #fff; border-radius: 12px; padding: 28px 36px; margin-bottom: 24px; text-align: center; position: relative; overflow: hidden; }
-.padisah-section { background: #fff; border-radius: 14px; box-shadow: 0 3px 18px rgba(0,0,0,0.09); margin-bottom: 24px; overflow: hidden; border: 1px solid #ddd8cf; }
-.padisah-header { padding: 20px 28px 16px; display: flex; align-items: center; gap: 18px; }
-.padisah-header.orhan { background: #7c3a10; }
-.padisah-header.murat { background: #1a3a6e; }
-.padisah-header.yildirim { background: #1a5e2a; }
-/* diğer stiller eski haliyle, tüm classlar aynı */
 
-/* dinamik özet metinleri için container */
-#ozetContainer {
-  transition: all 0.2s;
+/* Ordu tree */
+.ordu-tree { background: #f0f4fb; border: 1px solid #b8c8e0; border-radius: 10px; padding: 22px 14px; margin: 16px 0 26px; }
+.tree-top { display: flex; justify-content: center; }
+.tree-box { background: #2563ab; color: #fff; font-weight: 700; font-size: 14px; padding: 8px 22px; border-radius: 6px; text-align: center; letter-spacing: 0.5px; }
+.tree-connector-v { width: 2px; height: 18px; background: #2563ab; margin: 0 auto; }
+.tree-level2 { display: flex; justify-content: center; gap: 36px; }
+.tree-branch { display: flex; flex-direction: column; align-items: center; }
+.tree-box-blue { background: #3b82c4; color: #fff; font-weight: 700; font-size: 13px; padding: 7px 16px; border-radius: 6px; text-align: center; }
+.tree-box-light { background: #dbeafe; color: #1a3a6e; font-weight: 700; font-size: 12px; padding: 6px 12px; border-radius: 5px; text-align: center; border: 1px solid #93c5fd; }
+.tree-sub { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.tree-card { background: #fff; border: 1px solid #b8c8e0; border-radius: 7px; padding: 10px 12px; font-size: 12px; min-width: 140px; max-width: 190px; flex: 1; }
+.tree-card-title { font-weight: 700; font-size: 11.5px; background: var(--kapikulu); color: #1a3a6e; padding: 4px 8px; border-radius: 4px; text-align: center; margin-bottom: 7px; }
+.tree-card-title.suvari { background: var(--timar); }
+.tree-card-title.eyalet { background: var(--eyalet); color: #1a4a2a; }
+.tree-card p { margin: 2px 0; font-size: 11.5px; line-height: 1.5; }
+.yardimci-note { background: #fff8f0; border: 1px solid #f0c080; border-radius: 7px; padding: 10px 12px; font-size: 12px; max-width: 170px; color: #5a3a10; text-align: center; font-style: italic; }
+
+/* Dönem bloklar */
+.donem-block { background: #f8f8f5; border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; padding: 13px 16px; margin: 12px 0; font-size: 15px; }
+.donem-block.orhan { border-left-color: #2563ab; }
+.donem-block.orhan strong { color: #1e40af; }
+.donem-block.murat1 { border-left-color: #7c3aed; }
+.donem-block.murat1 strong { color: #6d28d9; }
+.donem-block.murat2 { border-left-color: #059669; }
+.donem-block.murat2 strong { color: #065f46; }
+.sistem-tag { display: inline-block; background: #fef3c7; border: 1px solid #fbbf24; border-radius: 4px; padding: 2px 8px; font-weight: 700; font-size: 13px; color: #92400e; margin-right: 4px; }
+.sistem-tag.devs { background: #ede9fe; border-color: #8b5cf6; color: #4c1d95; }
+
+/* Özellik kutular */
+.ozellik-box { border-radius: 8px; padding: 15px 18px; margin: 14px 0; }
+.ozellik-box.yeni { background: #f0f0ff; border: 1px solid #a0a0e0; }
+.ozellik-box.timar-oz { background: #f0fff4; border: 1px solid #86efac; }
+.ozellik-box .star-title { font-weight: 700; font-size: 15px; margin-bottom: 9px; display: flex; align-items: center; gap: 8px; color: var(--accent); }
+.ozellik-box.timar-oz .star-title { color: #166534; }
+.ozellik-box ol { padding-left: 22px; }
+.ozellik-box ol li { margin: 3px 0; }
+
+/* Toprak şeması */
+.toprak-tree { background: #f8f6f0; border: 1px solid #d4cfc7; border-radius: 10px; padding: 20px 14px; margin: 16px 0; }
+.toprak-row { display: flex; gap: 14px; justify-content: center; margin: 10px 0; flex-wrap: wrap; }
+.toprak-box { border-radius: 7px; padding: 10px 12px; font-size: 12.5px; flex: 1; min-width: 140px; max-width: 220px; line-height: 1.5; }
+.toprak-box.miri { background: #d1fae5; border: 1px solid #6ee7b7; color: #065f46; }
+.toprak-box.mulk { background: #fff7ed; border: 1px solid #fcd34d; color: #78350f; }
+.toprak-box.osri { background: #dbeafe; border: 1px solid #93c5fd; color: #1e3a8a; }
+.toprak-box.haraci { background: #fee2e2; border: 1px solid #fca5a5; color: #7f1d1d; }
+.toprak-box strong { display: block; font-size: 12.5px; margin-bottom: 3px; font-weight: 700; }
+.dirlik-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 10px 0; }
+.dirlik-card { background: #fff; border-radius: 7px; padding: 7px 9px; font-size: 11px; flex: 1; min-width: 90px; max-width: 120px; text-align: center; line-height: 1.4; }
+.dirlik-card.dirlik { border: 2px solid #a855f7; }
+.dirlik-card.pasma { border: 2px solid #ec4899; }
+.dirlik-card.ocak { border: 2px solid #f97316; }
+.dirlik-card.malikane { border: 2px solid #84cc16; }
+.dirlik-card.yurtluk { border: 2px solid #06b6d4; }
+.dirlik-card.vakif { border: 2px solid #6366f1; }
+.dirlik-card.mukataa { border: 2px solid #14b8a6; }
+.dirlik-card strong { display: block; font-weight: 700; font-size: 11.5px; margin-bottom: 2px; }
+.has-row { display: flex; justify-content: center; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+.has-tag { padding: 5px 16px; border-radius: 20px; font-weight: 700; font-size: 13px; }
+.has-tag.has { background: #fde68a; color: #78350f; }
+.has-tag.zeamet { background: #c7d2fe; color: #3730a3; }
+.has-tag.timar-t { background: #bbf7d0; color: #14532d; }
+
+/* Metin bloklar */
+.bold-def { margin: 10px 0; font-size: 15px; }
+.bold-def strong { color: var(--accent2); }
+.info-arrow { display: flex; gap: 12px; align-items: flex-start; background: #f0f4fb; border-radius: 8px; padding: 13px 15px; margin: 12px 0; border-left: 4px solid #3b82c4; }
+.info-arrow-icon { font-size: 18px; flex-shrink: 0; }
+.gorev-box { background: #f9f9f9; border: 1px solid var(--border); border-radius: 8px; padding: 15px 18px; margin: 12px 0; }
+.gorev-box h3 { font-family: 'Crimson Pro', serif; font-size: 15.5px; font-weight: 700; color: var(--accent2); margin-bottom: 8px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+.gorev-box ol { padding-left: 20px; }
+.gorev-box ol li { margin: 4px 0; font-size: 14.5px; }
+.politika-box { border-radius: 8px; padding: 13px 16px; margin: 10px 0; }
+.politika-box.iskan { background: #eff6ff; border-left: 4px solid #3b82f6; }
+.politika-box.istimalet { background: #f0fdf4; border-left: 4px solid #22c55e; }
+.sivil-blok { background: #1a3a6e; color: #fff; border-radius: 8px; padding: 15px 18px; margin: 14px 0; }
+.sivil-blok h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 10px; color: #fde68a; }
+.sivil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sivil-item { background: rgba(255,255,255,0.1); border-radius: 6px; padding: 8px 12px; font-size: 13px; border-left: 3px solid #fde68a; }
+.sivil-item strong { color: #fde68a; }
+.terim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0; }
+.terim-card { background: #faf9f6; border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-size: 14px; }
+.terim-card strong { color: var(--accent); }
+.alim-block { background: #fffbf0; border: 1px solid #f0d080; border-radius: 8px; padding: 13px 16px; margin: 12px 0; }
+.alim-block strong { color: #78350f; }
+.fayda-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 12px 0; }
+.fayda-card { border-radius: 7px; padding: 11px 13px; }
+.fayda-card.siyasi { background: #eff6ff; border: 1px solid #93c5fd; }
+.fayda-card.sosyal { background: #f0fdf4; border: 1px solid #86efac; }
+.fayda-card.askeri { background: #fff7ed; border: 1px solid #fcd34d; }
+.fayda-card.ekonomik { background: #fdf4ff; border: 1px solid #d8b4fe; }
+.fayda-card h4 { font-size: 12.5px; font-weight: 700; margin-bottom: 5px; color: var(--accent); }
+.fayda-card.sosyal h4 { color: #166534; }
+.fayda-card.askeri h4 { color: #92400e; }
+.fayda-card.ekonomik h4 { color: #6b21a8; }
+.fayda-card ol { padding-left: 16px; font-size: 12px; }
+.fayda-card ol li { margin: 2px 0; }
+.separator { border: none; border-top: 1.5px solid var(--border); margin: 24px 0; }
+.inline-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.inline-tag { background: #f0f4fb; border: 1px solid #b8c8e0; border-radius: 20px; padding: 3px 12px; font-size: 13px; color: var(--accent); font-weight: 600; }
+p { margin: 10px 0; }
+
+/* ===== SAYFA 2: PADİŞAHLAR ===== */
+:root {
+  --orhan: #7c3a10; --orhan-bg: #fff8f1; --orhan-mid: #c87940; --orhan-light: #fdecd8;
+  --murat: #1a3a6e; --murat-bg: #f0f4fb; --murat-mid: #3060b0; --murat-light: #dce8f8;
+  --yildirim: #1a5e2a; --yildirim-bg: #f0faf2; --yildirim-mid: #2e8c45; --yildirim-light: #d4f0dc;
+  --text2: #1c1c1c; --bg2: #f5f3ee; --border2: #ddd8cf; --shadow2: 0 3px 18px rgba(0,0,0,0.09);
 }
-.ozet-notu {
-  background: #fef9e6;
-  border-left: 6px solid #c0a060;
-  padding: 20px 25px;
-  margin: 20px 0;
-  border-radius: 16px;
-  font-size: 15px;
-  line-height: 1.7;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-.ozet-baslik-ozel {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  color: #1c3e2d;
-  margin-bottom: 12px;
-  font-weight: 700;
+
+.page2 { max-width: 920px; margin: 0 auto; padding: 28px 16px 56px; }
+
+.p2-header { background: #1c1a16; color: #fff; border-radius: 12px; padding: 28px 36px; margin-bottom: 24px; text-align: center; position: relative; overflow: hidden; }
+.p2-header::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 40px); }
+.p2-header h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: #fff; position: relative; z-index: 1; }
+.p2-header .sub { font-size: 13px; color: #d4b88a; margin-top: 7px; letter-spacing: 1.5px; text-transform: uppercase; position: relative; z-index: 1; }
+.p2-header .kaynak { font-size: 11.5px; color: #888; margin-top: 5px; position: relative; z-index: 1; }
+
+.padisah-section { background: #fff; border-radius: 14px; box-shadow: var(--shadow2); margin-bottom: 24px; overflow: hidden; border: 1px solid var(--border2); }
+.padisah-header { padding: 20px 28px 16px; display: flex; align-items: center; gap: 18px; }
+.padisah-header.orhan { background: var(--orhan); }
+.padisah-header.murat { background: var(--murat); }
+.padisah-header.yildirim { background: var(--yildirim); }
+.padisah-no { font-family: 'Playfair Display', serif; font-size: 46px; font-weight: 900; color: rgba(255,255,255,0.18); line-height: 1; flex-shrink: 0; }
+.padisah-info h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 700; color: #fff; line-height: 1.2; }
+.padisah-info .donem { font-size: 13px; color: rgba(255,255,255,0.72); margin-top: 3px; }
+.padisah-info .lakap { display: inline-block; background: rgba(255,255,255,0.18); border-radius: 20px; padding: 2px 11px; font-size: 12px; color: #fff; margin-top: 4px; }
+.padisah-body { padding: 22px 28px 24px; }
+
+.sec-title { font-family: 'Crimson Pro', serif; font-size: 15px; font-weight: 700; margin: 20px 0 9px; padding-bottom: 5px; border-bottom: 2px solid; display: flex; align-items: center; gap: 8px; }
+.orhan-sec .sec-title { color: var(--orhan); border-color: var(--orhan-light); }
+.murat-sec .sec-title { color: var(--murat); border-color: var(--murat-light); }
+.yildirim-sec .sec-title { color: var(--yildirim); border-color: var(--yildirim-light); }
+.sec-title:first-child { margin-top: 0; }
+
+.intro-box { border-radius: 8px; padding: 13px 16px; font-size: 14px; margin-bottom: 6px; line-height: 1.7; }
+.orhan-sec .intro-box { background: var(--orhan-bg); border-left: 4px solid var(--orhan-mid); }
+.murat-sec .intro-box { background: var(--murat-bg); border-left: 4px solid var(--murat-mid); }
+.yildirim-sec .intro-box { background: var(--yildirim-bg); border-left: 4px solid var(--yildirim-mid); }
+
+.olay-grid { display: grid; gap: 7px; margin: 7px 0; }
+.olay-item { display: flex; gap: 12px; align-items: flex-start; background: #fafaf8; border-radius: 7px; padding: 9px 12px; border: 1px solid #ede9e1; }
+.olay-tarih { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 13px; flex-shrink: 0; min-width: 44px; padding-top: 1px; }
+.orhan-sec .olay-tarih { color: var(--orhan-mid); }
+.murat-sec .olay-tarih { color: var(--murat-mid); }
+.yildirim-sec .olay-tarih { color: var(--yildirim-mid); }
+.olay-content { font-size: 13.5px; line-height: 1.65; }
+
+.savas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 7px 0; }
+.savas-card { border-radius: 9px; padding: 13px 14px; border: 1px solid; }
+.orhan-sec .savas-card { background: var(--orhan-light); border-color: #e8b880; }
+.murat-sec .savas-card { background: var(--murat-light); border-color: #a0c0e8; }
+.yildirim-sec .savas-card { background: var(--yildirim-light); border-color: #90d0a0; }
+.savas-card .savas-name { font-family: 'Playfair Display', serif; font-size: 13.5px; font-weight: 700; margin-bottom: 5px; }
+.orhan-sec .savas-card .savas-name { color: var(--orhan); }
+.murat-sec .savas-card .savas-name { color: var(--murat); }
+.yildirim-sec .savas-card .savas-name { color: var(--yildirim); }
+.savas-card .savas-tarih { font-size: 11.5px; font-weight: 700; padding: 2px 7px; border-radius: 12px; display: inline-block; margin-bottom: 7px; color: #fff; }
+.orhan-sec .savas-card .savas-tarih { background: var(--orhan-mid); }
+.murat-sec .savas-card .savas-tarih { background: var(--murat-mid); }
+.yildirim-sec .savas-card .savas-tarih { background: var(--yildirim-mid); }
+.savas-card ul { padding-left: 15px; font-size: 12.5px; }
+.savas-card ul li { margin: 3px 0; }
+
+.ilkler-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 7px; margin: 7px 0; }
+.ilk-item { border-radius: 8px; padding: 9px 12px; font-size: 13px; display: flex; gap: 9px; align-items: flex-start; }
+.orhan-sec .ilk-item { background: #fff3ea; border: 1px solid #e8c090; }
+.murat-sec .ilk-item { background: #edf3ff; border: 1px solid #a0b8e0; }
+.yildirim-sec .ilk-item { background: #edfaf2; border: 1px solid #90d0a8; }
+.ilk-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+.sonuc-list { padding-left: 0; list-style: none; margin: 7px 0; }
+.sonuc-list li { padding: 4px 0 4px 20px; position: relative; font-size: 14px; border-bottom: 1px solid #f0ede8; }
+.sonuc-list li:last-child { border-bottom: none; }
+.sonuc-list li::before { content: '▸'; position: absolute; left: 0; font-size: 11px; top: 7px; }
+.orhan-sec .sonuc-list li::before { color: var(--orhan-mid); }
+.murat-sec .sonuc-list li::before { color: var(--murat-mid); }
+.yildirim-sec .sonuc-list li::before { color: var(--yildirim-mid); }
+
+.teskilat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 7px; margin: 7px 0; }
+.teskilat-card { border-radius: 8px; padding: 11px 13px; font-size: 13px; }
+.orhan-sec .teskilat-card { background: #fff3ea; border: 1px solid #e0b880; }
+.murat-sec .teskilat-card { background: #edf3ff; border: 1px solid #90b8e8; }
+.yildirim-sec .teskilat-card { background: #edfaf2; border: 1px solid #80d0a0; }
+.teskilat-card strong { display: block; font-size: 12.5px; margin-bottom: 3px; }
+.orhan-sec .teskilat-card strong { color: var(--orhan); }
+.murat-sec .teskilat-card strong { color: var(--murat); }
+.yildirim-sec .teskilat-card strong { color: var(--yildirim); }
+
+.vurgu-box { border-radius: 8px; padding: 11px 14px; font-size: 13.5px; margin: 9px 0; font-style: italic; display: flex; gap: 9px; align-items: flex-start; }
+.orhan-sec .vurgu-box { background: #fff3ea; border: 1px solid #e0b070; }
+.murat-sec .vurgu-box { background: #edf3ff; border: 1px solid #8ab0e0; }
+.yildirim-sec .vurgu-box { background: #edfaf2; border: 1px solid #70c888; }
+.vurgu-icon { font-size: 17px; flex-shrink: 0; }
+
+.fetret-box { background: #fff5f5; border: 1.5px solid #f0a0a0; border-radius: 10px; padding: 15px 18px; margin: 12px 0; }
+.fetret-box h4 { font-family: 'Playfair Display', serif; font-size: 14.5px; color: #8b1a1a; margin-bottom: 7px; }
+.fetret-box ul { padding-left: 17px; font-size: 13.5px; }
+.fetret-box ul li { margin: 3px 0; }
+
+.ozet-row { display: flex; flex-wrap: wrap; gap: 7px; margin: 9px 0; }
+.ozet-badge { border-radius: 20px; padding: 3px 12px; font-size: 12.5px; font-weight: 600; color: #fff; }
+.orhan-sec .ozet-badge { background: var(--orhan-mid); }
+.murat-sec .ozet-badge { background: var(--murat-mid); }
+.yildirim-sec .ozet-badge { background: var(--yildirim-mid); }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .page1 { padding: 20px 16px; }
+  .page2 { padding: 16px 10px 40px; }
+  .p2-header { padding: 20px 18px; }
+  .padisah-header { padding: 16px 18px; gap: 12px; }
+  .padisah-body { padding: 16px 16px 18px; }
+  .padisah-no { font-size: 36px; }
+  .savas-grid, .ilkler-grid, .teskilat-grid { grid-template-columns: 1fr; }
+  .fayda-grid { grid-template-columns: 1fr 1fr; }
+  .sivil-grid, .terim-grid { grid-template-columns: 1fr; }
+  .nav-title { display: none; }
 }
 </style>
 </head>
 <body>
-
-<!-- HAMBURGER MENÜ (sol üst) -->
-<div class="hamburger-menu" id="hamburgerBtn">
-  <div class="hamburger-icon">☰</div>
-  <div class="menu-label">ÖZETLER</div>
-</div>
-<div class="menu-panel" id="menuPanel">
-  <div class="kapat-panel" id="closePanelBtn"><span>✖ Kapat</span></div>
-  <button class="ozet-buton" data-ozet-tip="kisa"><i>📘</i> Kısa Özet (Önemli Kısımlar)</button>
-  <button class="ozet-buton" data-ozet-tip="orta"><i>📖</i> Orta Özet</button>
-  <button class="ozet-buton" data-ozet-tip="detay"><i>📚</i> Detaylı Özet</button>
-  <button class="ozet-buton ana-kagit-buton" id="anaKagitBtn"><i>📄</i> Ana Kağıda Dön</button>
-</div>
 
 <!-- NAVİGASYON -->
 <nav class="nav-bar">
   <div class="nav-inner">
     <div class="nav-title">📖 10. Sınıf Tarih</div>
     <div class="nav-tabs">
-      <div class="nav-tab active" onclick="switchTab('tab1', this)"><span class="tab-icon">🏛️</span> Ordu · Toprak · Hukuk</div>
-      <div class="nav-tab" onclick="switchTab('tab2', this)"><span class="tab-icon">👑</span> Orhan Bey · I. Murat · Yıldırım</div>
+      <div class="nav-tab active" onclick="switchTab('tab1', this)">
+        <span class="tab-icon">🏛️</span> Ordu · Toprak · Hukuk
+      </div>
+      <div class="nav-tab" onclick="switchTab('tab2', this)">
+        <span class="tab-icon">👑</span> Orhan Bey · I. Murat · Yıldırım
+      </div>
     </div>
   </div>
 </nav>
 
-<!-- ========== TAB 1: ORDU / TOPRAK / HUKUK (ORJINAL) ========== -->
+<!-- ========== TAB 1: ORDU / TOPRAK / HUKUK ========== -->
 <div id="tab1" class="tab-panel active">
-<div class="page1" id="page1Content">
-  <div id="ozetContainer1" style="min-height: 100px;">
-    <!-- Özet buraya dinamik gelecek, varsayılan orijinal içerik aşağıda tutulacak -->
+<div class="page1">
+
+  <h1 class="p1-h1">10. SINIF TARİH DERSİ ÇALIŞMA KAĞIDI</h1>
+  <div class="konu-baslik">KONU: Osmanlı Devleti'nde Ordu, Hukuk ve Toprak Sistemi</div>
+
+  <div class="alt-baslik">1) Osmanlı Devleti'nde Ordu Yapısı</div>
+
+  <div class="ordu-tree">
+    <div class="tree-top"><div class="tree-box">OSMANLI ORDU TEŞKİLATI</div></div>
+    <div class="tree-connector-v"></div>
+    <div class="tree-level2">
+      <div class="tree-branch" style="flex:2">
+        <div class="tree-box-blue">KARA KUVVETLERİ</div>
+        <div class="tree-connector-v"></div>
+        <div class="tree-sub" style="gap:8px">
+          <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+            <div class="tree-box-light">KAPIKULU ASKERLERİ</div>
+            <div class="tree-connector-v"></div>
+            <div style="display:flex;gap:7px;flex-wrap:wrap">
+              <div class="tree-card">
+                <div class="tree-card-title">KAPIKULU PİYADELERİ<br>(Yaya Askerler)</div>
+                <p><strong>Acemi oğlanlar ocağı:</strong> Devşirmelerin ilk eğitildiği yer.</p>
+                <p><strong>Yeniçeriler:</strong> Padişahı koruyan yaya kuvvetler.</p>
+                <p><strong>Cebeciler:</strong> Silahlardan sorumlu askeri sınıf.</p>
+                <p><strong>Topçular:</strong> Top döküp kullanan askeri sınıf.</p>
+                <p><strong>Top arabacıları:</strong> Topları cepheye taşıyan askeri sınıf.</p>
+                <p><strong>Lağımcılar:</strong> Kale altlarına tünel açıp bölgeyi havaya uçuran askeri sınıf.</p>
+                <p><strong>Humbaracılar:</strong> Havan topu yapan askeri sınıf.</p>
+                <p><strong>Bostancılar:</strong> Sarayın güvenliğini sağlayan askeri sınıf.</p>
+              </div>
+              <div class="tree-card">
+                <div class="tree-card-title suvari">KAPIKULU SÜVARİLERİ<br>(Atlı Askerler)</div>
+                <p><strong>Silahdarlar ve sipahiler:</strong> Padişahın otağını koruyan askerler.</p>
+                <p><strong>Sağ ve sol ulufeciler:</strong> Saltanat sancaklarını koruyan askerler.</p>
+                <p><strong>Sağ ve sol garipler:</strong> Ordunun ağırlıklarını ve hazineyi muhafaza eden askerler.</p>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:0">
+            <div style="display:flex;gap:7px">
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+                <div class="tree-box-light">EYALET ASKERLERİ</div>
+                <div class="tree-connector-v"></div>
+                <div class="tree-card" style="max-width:100%;width:100%">
+                  <div class="tree-card-title eyalet">EYALET ASKERLERİ</div>
+                  <p><strong>Tımarlı sipahiler:</strong> Atlı askeri sınıf.</p>
+                  <p><strong>Akıncılar:</strong> Ordunun önünden giden keşif birliği.</p>
+                  <p><strong>Azaplar:</strong> İlk hücumu karşılayan öncü birlikler.</p>
+                  <p><strong>Yayalar ve müsellemler:</strong> Köprü tamiri ve yol yapımında görev alan askerler.</p>
+                  <p><strong>Yörükler:</strong> Siper kazma, kale tamiri ve yol açmada görevli askerler.</p>
+                  <p><strong>Deliler:</strong> Sınır boylarındaki korkusuz süvari birlikleri.</p>
+                  <p><strong>Sakalar:</strong> Su ihtiyacını karşılayan askerler.</p>
+                  <p><strong>Beşliler:</strong> Sınırlardaki kaleleri koruyan askerler.</p>
+                  <p><strong>Gönüllüler:</strong> Sınırlardaki şehir ve kasabaları koruyanlar.</p>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+                <div class="tree-box-light">YARDIMCI KUVVETLER</div>
+                <div class="tree-connector-v"></div>
+                <div class="yardimci-note">Bağlı beylik ve devletlerin gönderdiği birlikler.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tree-branch" style="flex:0.4">
+        <div class="tree-box-blue">DENİZ KUVVETLERİ</div>
+      </div>
+    </div>
   </div>
-  <div id="orijinalIcerik1">
-    <h1 class="p1-h1">10. SINIF TARİH DERSİ ÇALIŞMA KAĞIDI</h1>
-    <div class="konu-baslik">KONU: Osmanlı Devleti'nde Ordu, Hukuk ve Toprak Sistemi</div>
-    <div class="alt-baslik">1) Osmanlı Devleti'nde Ordu Yapısı</div>
-    <div class="ordu-tree"><div class="tree-top"><div class="tree-box">OSMANLI ORDU TEŞKİLATI</div></div><div class="tree-connector-v"></div><div class="tree-level2">...</div></div>
-    <div class="donem-block"><strong>Osman Bey Dönemi:</strong> Devletin düzenli bir ordusu bulunmamaktadır...</div>
-    <div class="donem-block orhan"><strong>Orhan Bey Dönemi:</strong> İlk düzenli ordu Yaya ve Müsellemler...</div>
-    <div class="donem-block murat1"><strong>I. Murat Dönemi:</strong> Kapıkulu ordusu, Pençik Sistemi...</div>
-    <div class="donem-block murat2"><strong>II. Murat Dönemi:</strong> Devşirme Sistemi...</div>
-    <div class="ozellik-box yeni"><div class="star-title">⭐ YENİÇERİLERİN ÖZELLİKLERİ:</div><ol><li>Gayrimüslim çocuklarından seçilir.</li><li>Merkezde görev yaparlar.</li></ol></div>
-    <div class="ozellik-box timar-oz"><div class="star-title">⭐ TIMARLI SİPAHİLERİN ÖZELLİKLERİ</div><ol><li>Türklerden seçilir.</li><li>Eyaletlerde görev yaparlar.</li></ol></div>
-    <hr class="separator"><div class="alt-baslik">2) TOPRAK SİSTEMİ</div>
-    <div class="toprak-tree"><div class="tree-top"><div class="tree-box">OSMANLI TOPRAK YAPISI</div></div><div class="toprak-row"><div class="toprak-box miri"><strong>MİRİ ARAZİ</strong>Devlet arazisi...</div><div class="toprak-box mulk"><strong>MÜLK ARAZİ</strong>Kişilere ait...</div></div><div class="dirlik-row"><div class="dirlik-card dirlik"><strong>DİRLİK</strong>Gelirleri yararlılığı görülen kişilere verilir.</div></div><div class="has-row"><div class="has-tag has">HAS</div><div class="has-tag zeamet">ZEAMET</div><div class="has-tag timar-t">TIMAR</div></div></div>
-    <div class="bold-def"><strong>HAS:</strong> Yıllık geliri 100.000 akçeden fazla...</div>
-    <div class="fayda-grid"><div class="fayda-card siyasi"><h4>Siyasi Faydaları</h4><ol><li>Bölgenin yönetimi kolaylaşır.</li></ol></div></div>
-    <hr class="separator"><div class="alt-baslik">3) HUKUK SİSTEMİ</div>
-    <p>Osmanlı'da şeri ve örfi hukuk...</p><div class="gorev-box"><h3>-KAZASKER'İN GÖREVLERİ</h3><ol><li>Divan-ı Hümayun davaları...</li></ol></div>
-    <div class="konu-baslik">KONU: İskan ve İstimalet Politikası</div>
-    <div class="politika-box iskan"><p><strong>-İSKAN POLİTİKASI:</strong> Rumeli'ye Anadolu'dan konargöçerlerin yerleştirilmesi.</p></div>
-    <div class="sivil-blok"><h3>Osmanlı'nın Rumeli'de egemenlik kurmasında etkili sivil teşkilatlar</h3><div class="sivil-grid"><div class="sivil-item"><strong>Gaziyan-ı Rum</strong></div></div></div>
-    <div class="konu-baslik">KONU: İlim ve İrfan Geleneği</div>
-    <div class="terim-grid"><div class="terim-card"><strong>Medrese:</strong> Üst düzey eğitim</div></div>
-    <div class="alim-block"><p><strong>ŞEYH EDEBALİ</strong>...</p></div>
+
+  <div class="donem-block">
+    <strong>Osman Bey Dönemi:</strong> Devletin düzenli bir ordusu bulunmamaktadır. Savaşlara gidilirken toplama ordu oluşturulmaktadır.
+    <div class="inline-list" style="margin-top:8px">
+      <span class="inline-tag">Alpler</span><span class="inline-tag">Gaziler</span><span class="inline-tag">Aşiret Kuvvetleri</span><span class="inline-tag">Ücretli Askerler</span><span class="inline-tag">Sivil Topluluklar</span>
+    </div>
   </div>
+
+  <div class="donem-block orhan">
+    <strong>Orhan Bey Dönemi:</strong> Osmanlı Devleti'nin ilk düzenli ordusu olan <u>Yaya ve Müsellemler</u> bu dönemde kurulmuştur. Ayrıca bu dönemde <u>Azaplar</u> denilen bekar Türk gençlerinden seçilen ve ücret karşılığında askerlik yapan birlik oluşturulmuştur.
+  </div>
+
+  <div class="donem-block murat1">
+    <strong>I. Murat Dönemi:</strong> Kapıkulu ordusu bu dönemde kurulmuş ve piyade birlikleri içerisinde yer alan Yeniçeri Ocağına asker temin etmek amaçlı bu dönemde <span class="sistem-tag">PENÇİK SİSTEMİ</span> geliştirilmiştir.
+    <div style="margin-top:8px;background:#fff;border-radius:6px;padding:9px 13px;font-size:14px;">
+      <strong>-PENÇİK SİSTEMİ:</strong> Savaşlarda ele geçirilen esirlerden 5'te 1'inin seçilip asker olarak yetiştirilmesidir.
+    </div>
+  </div>
+
+  <div class="donem-block murat2">
+    <strong>II. Murat Dönemi:</strong> Ordu yapısında düzenlemeler yapılmış ve Yeniçeri Ocağına asker seçiminde <span class="sistem-tag devs">DEVŞİRME SİSTEMİ</span>'ne geçilmiştir.
+    <div style="margin-top:8px;background:#fff;border-radius:6px;padding:9px 13px;font-size:14px;">
+      <strong>-DEVŞİRME SİSTEMİ:</strong> Gayrimüslim çocuklarının belirli kurallar çerçevesinde seçilip asker olarak yetiştirilmesidir.
+    </div>
+  </div>
+
+  <div class="ozellik-box yeni">
+    <div class="star-title">⭐ YENİÇERİLERİN ÖZELLİKLERİ:</div>
+    <ol><li>Gayrimüslim çocuklarından seçilir.</li><li>Merkezde görev yaparlar.</li><li>Yaya askerlerdir.</li><li>Devletten üç ayda bir <strong>ulufe</strong> denilen maaş alırlar.</li><li><strong>Cülus</strong> denilen bahşiş alırlar.</li><li>Başka bir işte çalışamazlar.</li><li>Evlenemezler.</li></ol>
+  </div>
+
+  <div class="ozellik-box timar-oz">
+    <div class="star-title">⭐ TIMARLI SİPAHİLERİN ÖZELLİKLERİ</div>
+    <ol><li>Türklerden seçilir.</li><li>Eyaletlerde görev yaparlar.</li><li>Atlı askerlerdir.</li><li>Başka bir işte çalışabilirler.</li><li>Evlenebilirler.</li></ol>
+  </div>
+
+  <hr class="separator">
+
+  <div class="alt-baslik">2) TOPRAK SİSTEMİ</div>
+
+  <div class="toprak-tree">
+    <div class="tree-top"><div class="tree-box">OSMANLI TOPRAK YAPISI</div></div>
+    <div class="tree-connector-v"></div>
+    <div class="toprak-row">
+      <div class="toprak-box miri"><strong>MİRİ ARAZİ (Devlet Arazisi)</strong>Osmanlı topraklarının büyük çoğunluğunu oluşturuyordu. Bu toprağın sahibi devletti. Mülkiyeti devlete ait olan bu topraklar; ekilip biçilmesi ve işlenmesi amacıyla reayaya bırakılmıştı.</div>
+      <div class="toprak-box mulk"><strong>MÜLK ARAZİ</strong>Kişilerin elinde bulunan ve tamamen kişilere ait olan topraklardır. Fetihler öncesinde halka ait olan bu topraklar, fetihler sonrasında yine o yöre halkına bırakıldı.</div>
+    </div>
+    <div class="tree-connector-v"></div>
+    <div class="toprak-row">
+      <div class="toprak-box osri"><strong>ÖŞRİ TOPRAK</strong>Mülkiyeti Müslümanlara ait olan topraklardır.</div>
+      <div class="toprak-box haraci"><strong>HARACİ TOPRAK</strong>Mülkiyeti Müslüman olmayanlara ait olan topraklardır.</div>
+    </div>
+    <div class="tree-connector-v"></div>
+    <div class="dirlik-row">
+      <div class="dirlik-card dirlik"><strong>DİRLİK</strong>Gelirleri yararlılığı görülen kişilere verilen topraklardır.</div>
+      <div class="dirlik-card pasma"><strong>PAŞMALIK</strong>Gelirleri padişah kızlarına, annelerine ve eşlerine ayrılan topraklardır.</div>
+      <div class="dirlik-card ocak"><strong>OCAKLIK</strong>Gelirleri kale muhafızlarına ve tersane giderlerine ayrılan topraklardır.</div>
+      <div class="dirlik-card malikane"><strong>MALİKÂNE</strong>Üstün hizmetlerine karşılık, bazı devlet görevlilerine verilen topraklardır.</div>
+      <div class="dirlik-card yurtluk"><strong>YURTLUK</strong>Gelirleri sınır boylarındaki askerlere verilen topraklardır.</div>
+      <div class="dirlik-card vakif"><strong>VAKIF</strong>Sosyal kurumların masrafları için ayrılan topraklardır.</div>
+      <div class="dirlik-card mukataa"><strong>MUKATAA</strong>Gelirleri doğrudan devlet hazinesine gitmek üzere ayrılmış topraklardır.</div>
+    </div>
+    <div class="tree-connector-v"></div>
+    <div class="has-row">
+      <div class="has-tag has">HAS</div>
+      <div class="has-tag zeamet">ZEAMET</div>
+      <div class="has-tag timar-t">TIMAR</div>
+    </div>
+  </div>
+
+  <div class="bold-def"><strong>HAS:</strong> Yıllık geliri 100.000 akçeden fazla olan dirliklerdir. Padişah, hanedan üyeleri; vezirler, beylerbeyi, sancak beyi, Dîvân-ı Hümâyun üyeleri gibi yüksek dereceli devlet görevlilerine verilirdi.</div>
+  <div class="bold-def"><strong>ZEAMET:</strong> Yıllık geliri 20.000-100.000 akçe arasında olan dirliklerdir. Subaşı, tımar defterdarı, eyalet defterdarı, alay beyi gibi orta dereceli devlet görevlilerine verilirdi.</div>
+  <div class="bold-def"><strong>TIMAR:</strong> Yıllık geliri 19.999 akçeye kadar olan dirliklerdir. Hizmetleri karşılığında tımarlı sipahilere (askerlere) tahsis edilirdi.</div>
+  <div class="bold-def"><strong>-TIMAR SİSTEMİ:</strong> Devlet görevlilerine maaş yerine bir bölgenin vergi toplanma yetkisinin verilip asker yetiştirilmesi istenilen sistemdir. Bu sistemle yetiştirilen askere <strong>cebelü</strong> denir.</div>
+
+  <div class="bold-def" style="font-weight:700;margin-top:14px;">-Tımar Sisteminin Faydaları:</div>
+  <div class="fayda-grid">
+    <div class="fayda-card siyasi"><h4>Siyasi Faydaları:</h4><ol><li>Bölgenin yönetimi kolaylaşır.</li><li>Bölgede devlet otoritesi sağlanır.</li></ol></div>
+    <div class="fayda-card sosyal"><h4>Sosyal Faydaları:</h4><ol><li>Konargöçerler yerleşik hayata geçirilir.</li><li>Halkın dayanışması sağlanır.</li></ol></div>
+    <div class="fayda-card askeri"><h4>Askeri Faydaları:</h4><ol><li>Bölgenin güvenliği sağlanır.</li><li>Hazır bir ordu kurulur.</li></ol></div>
+    <div class="fayda-card ekonomik"><h4>Ekonomik Faydaları:</h4><ol><li>Vergiler düzenli toplanır.</li><li>Memur maaşları karşılanır.</li><li>Üretimde süreklilik sağlanır.</li><li>Devlet hazineden para harcanmadan asker yetiştirilir.</li></ol></div>
+  </div>
+
+  <hr class="separator">
+
+  <div class="alt-baslik">3) HUKUK SİSTEMİ</div>
+  <p>Osmanlı Devleti'nde hukuk, şeri ve örfi olmak üzere iki farklı yargı sisteminden oluşurdu. Osmanlı hukukunun temeli, kurallarını dinî esaslardan alan şeri hukuka dayanmaktaydı. Örfi hukuk ise Türkistan'dan beri süregelen âdet ve gelenekler ile fethedilen bölgelerdeki geçmiş uygulamalardan oluşurdu. Osmanlı Devleti'nde hem şeri hem de örfi yargılamalar şeri mahkemelerde yapılır, bu mahkemelere kadılar başkanlık ederdi. Osmanlılar yeni bir yer fethettiklerinde oraya hemen bir kadı tayin ederdi. Osmanlı Devleti'nde yargı teşkilatının başında kazasker (kadı asker) adı verilen devlet görevlileri bulunurdu.</p>
+  <div class="gorev-box">
+    <h3>-KAZASKER'İN GÖREVLERİ:</h3>
+    <ol><li>Divan-ı Hümayun'a gelen davaları karara bağlar.</li><li>Kanunların uygulanmasından, kadıların atanmasından, denetiminden ve terfisinden sorumludur.</li><li>Okulların açılmasından ve müderris atamasından sorumludur. (Müderris=Öğretmen)</li><li>Dini kurumlardan ve dini görevlilerin atanmasından sorumludur.</li></ol>
+  </div>
+  <div class="gorev-box">
+    <h3>-KADI (HAKİM)'NIN GÖREVLERİ:</h3>
+    <ol><li>Görevli olduğu bölgedeki davaları karara bağlar.</li><li>Merkezden gelen emirleri uygular.</li><li>Bölgenin güvenliğinden sorumludur.</li><li>Bölgesindeki esnafların denetiminden sorumludur.</li><li>Belediyecilik hizmetlerini yürütür.</li><li>Vergilerin toplanmasından sorumludur.</li></ol>
+  </div>
+
+  <hr class="separator">
+
+  <div class="konu-baslik">KONU: Osmanlı Devleti'nde İskan ve İstimalet Politikası</div>
+  <div class="politika-box iskan"><p><strong>-İSKAN (YERLEŞTİRME) POLİTİKASI:</strong> Rumeli ve Balkanlarda ele geçirilen bölgelere Anadolu'da konargöçer yaşayan veya aralarında sorun bulunan ailelerden birinin alınıp yerleştirilmesidir.</p></div>
+  <div class="politika-box istimalet"><p><strong>-İSTİMALET (HOŞGÖRÜ) POLİTİKASI:</strong> Rumeli ve Balkanlarda ele geçirilen bölgelerde yaşayan gayrimüslim halkın dinine, diline ve kültürüne dokunmayıp hoşgörülü davranılmasıdır.</p></div>
+  <div class="bold-def" style="font-weight:700;margin-top:14px;">FAYDALARI:</div>
+  <ol style="margin-left:22px;margin-bottom:12px;font-size:15px;">
+    <li>Fetihlerin kalıcılığı sağlanır.</li><li>Türk kültürü ve İslamiyet yayılır.</li><li>Anadolu'da göçebe yaşayanlar yerleşik hayata geçirilir.</li><li>Anadolu'da huzur ve güven ortamı oluşur.</li>
+  </ol>
+  <div class="sivil-blok">
+    <h3>➤ Osmanlı Devleti'nin Rumeli ve Balkanlarda egemenlik kurmasında etkili olan sosyal yapılar (sivil teşkilatlar):</h3>
+    <div class="sivil-grid">
+      <div class="sivil-item"><strong>Gaziyan-ı Rum:</strong> İslamiyet'i yaymak için uğraşan teşkilat.</div>
+      <div class="sivil-item"><strong>Ahiyan-ı Rum:</strong> Esnafların dayanışmasını sağlayan teşkilat.</div>
+      <div class="sivil-item"><strong>Abdalan-ı Rum:</strong> Alimlerin yer aldığı teşkilat.</div>
+      <div class="sivil-item"><strong>Bacıyan-ı Rum:</strong> Kadınların dayanışmasını sağlayan teşkilat.</div>
+    </div>
+  </div>
+
+  <hr class="separator">
+
+  <div class="konu-baslik">KONU: Osmanlı Devleti'nin İlim ve İrfan Geleneği</div>
+  <div class="terim-grid">
+    <div class="terim-card"><strong>Medrese:</strong> Üst düzey eğitim kurumu.</div>
+    <div class="terim-card"><strong>İlim:</strong> Bilim</div>
+    <div class="terim-card"><strong>Vakıf:</strong> Yardım kuruluşları</div>
+    <div class="terim-card"><strong>Alim:</strong> İlim ile uğraşanlar</div>
+    <div class="terim-card"><strong>İrfan:</strong> Kültür</div>
+    <div class="terim-card"><strong>Müderris:</strong> Öğretmen</div>
+    <div class="terim-card"><strong>Bedesten:</strong> Değerli eşyaların satıldığı yer (Kapalıçarşı)</div>
+    <div class="terim-card"><strong>Külliye:</strong> Yapılar topluluğu</div>
+  </div>
+  <div class="info-arrow"><div class="info-arrow-icon">➤</div><div>Osmanlı Devleti'nde her şehirde irili ufaklı yüzlerce vakıf kurularak ihtiyaç sahiplerine, yolculara, hastalara, yaşlılara vb. yardım edilmiş, ilim ve irfan ehlinin faaliyetlerini devam ettirmesi sağlanmıştır. Örneğin Yıldırım Külliyesi bünyesindeki Yıldırım Darüşşifası'nda hem hastalar tedavi edilmiş hem de usta-çırak ilişkisi ile tıp eğitimi verilmiştir. Bu darüşşifa ilk Osmanlı darüşşifası olarak kabul edilir.</div></div>
+  <div class="info-arrow"><div class="info-arrow-icon">➤</div><div>Medreseler, ilmî çalışmalarda uzmanlaşmak isteyen öğrencilere eğitim veren kurumlardır. İlk Osmanlı şehirlerinin kurulmasından itibaren Osmanlı Devleti'nde ilim ve irfan geleneğinin korunmasına büyük önem verilmiş ve ilmî çalışmaların sürdürülmesi için yeni kurumlar açılmıştır. Orhan Gazi Dönemi'nde ilk Osmanlı medresesi olarak kurulan İznik Orhaniye Medresesi'dir.</div></div>
+  <div class="info-arrow"><div class="info-arrow-icon">➤</div><div>Medrese ve tekkelerde yetişen ya da bu kurumlarda ilmî ve tasavvufi çalışmalar yapan âlimler ve ârifler Osmanlı şehirlerindeki kültürel hayatın gelişiminde önemli rol oynamıştır. Bu dönemin önemli âlim ve âriflerinden Şeyh Edebali, Davud-i Kayseri, Dursun Fakih, Emir Sultan ve Hacı Bayram Veli, Osmanlı ilim ve irfan geleneğinin oluşumuna ve gelişimine büyük katkılarda bulunmuştur.</div></div>
+  <div class="alim-block"><p><strong>ŞEYH EDEBALİ (?-1326):</strong> XIII. yüzyıl başlarında Karaman'da doğmuş ve ilk eğitimini burada tamamlamıştır. Daha sonra medrese eğitimi için Şam'a gitmiş ve özellikle fıkıh alanında uzmanlaşmıştır. İslam düşüncesi konusunda İbnülarabi'nin görüşlerinden etkilenmiştir. Osmanlı Devleti'nin kuruluşundaki en etkili kişilerden biridir. Tasavvuf geleneğinden gelen Şeyh Edebali, yerleştiği Söğüt ve Bilecik çevresinde ve diğer Osmanlı şehirlerinde hem Ahilik kültürünün hem de tasavvuf düşüncesinin yerleşmesine katkıda bulunmuş, çok sayıda insan yetiştirmiştir.</p></div>
+  <div class="alim-block"><p><strong>DAVUD-İ KAYSERİ (1260-1350):</strong> Osmanlı Devleti'nin ilk müderrisidir. Memleketi Kayseri'de temel eğitimini aldıktan sonra Mısır'a giderek usul, tefsir ve hadis tahsili yapmıştır. Orhan Gazi'nin davetiyle Osmanlı topraklarına gelen Davud-i Kayseri, yeni kurulan İznik Medresesinde başmüderris olarak görev yapmıştır. Medrese eğitimi ile tasavvuf düşüncesini birlikte yorumlayarak irfanî farklı ilim çevrelerine açmıştır.</p></div>
+  <div class="alim-block"><p><strong>DURSUN FAKİH (XIII-XIV. yüzyıl):</strong> Şeyh Edebali'den tefsir, hadis, usul ve fıkıh eğitimi almış; bu nedenle o dönemin Osmanlı toplumunda Şeyh Ebebali'den sonraki en büyük fıkıh âlimi kabul edilmiştir. Osman Gazi ile gazalara katılmış, Karacahisar'ın Fethi'nden sonra buranın fakihlik ve imametine tayin edilerek ilk cuma hutbesini okumuştur. Osmanlı Devleti'nin ilk kadısı (hakim) olarak kayıtlarda yer almıştır.</p></div>
+  <div class="alim-block"><p><strong>EMİR SULTAN (?-1430):</strong> Gençlik yıllarında önemli âlimlerden dersler almış, babasının da etkisiyle erken yaşlarda tasavvufla tanışmıştır. Bursa'ya yerleştikten sonra Molla Fenari'nin talebesi olmuş, kısa sürede dinî ve aklî ilimlerdeki bilgisiyle tanınmıştır.</p></div>
+  <div class="alim-block"><p><strong>HACI BAYRAM VELİ (?-1430):</strong> Hacı Bayram Veli, yaşadığı çevrede sevilen ve sohbeti dinlenen bir din âlimidir. Hacı Bayram Veli'nin dervişlerinin oluşturduğu tasavvuf koluna Bayramiye adı verilir. Kaynaklarda onun Arapça ve Farsça bildiği, yüksek bir ilim ve irfana sahip olduğu belirtilir.</p></div>
+
 </div>
 </div>
 
-<!-- ========== TAB 2: PADİŞAHLAR (ORJINAL) ========== -->
+<!-- ========== TAB 2: PADİŞAHLAR ========== -->
 <div id="tab2" class="tab-panel">
-<div class="page2" id="page2Content">
-  <div id="ozetContainer2" style="min-height: 100px;"></div>
-  <div id="orijinalIcerik2">
-    <div class="p2-header"><div class="sub">10. Sınıf Tarih · 2. Ünite · MEB 2025-2026</div><h2>BEYLİKTEN DEVLETE OSMANLI SİYASETİ</h2></div>
-    <div class="padisah-section orhan-sec"><div class="padisah-header orhan"><div class="padisah-no">2.</div><div class="padisah-info"><h3>ORHAN BEY</h3><div class="donem">1324 – 1362</div></div></div><div class="padisah-body"><div class="intro-box">Osman Bey'den sonra tahta geçen Orhan Bey, beylikten devlete geçişi tamamlamıştır.</div><div class="sec-title">⚔️ Fetihler</div><div class="olay-item"><div class="olay-tarih">1326</div><div class="olay-content">Bursa'nın Fethi – başkent yapıldı.</div></div><div class="ilkler-grid"><div class="ilk-item">İlk medrese İznik'te (Davud-i Kayseri)</div></div></div></div>
-    <div class="padisah-section murat-sec"><div class="padisah-header murat"><div class="padisah-no">3.</div><div class="padisah-info"><h3>I. MURAT (HÜDAVENDİGÂR)</h3><div class="donem">1362 – 1389</div></div></div><div class="padisah-body"><div class="intro-box">Sultan ünvanını kullanan ilk padişah, Yeniçeri Ocağı'nı kurdu, I. Kosova'da şehit oldu.</div><div class="savas-grid"><div class="savas-card"><div class="savas-name">I. Kosova Savaşı (1389)</div><ul><li>Haçlı ordusu yenildi, ilk kez top kullanıldı.</li><li>I. Murat şehit edildi.</li></ul></div></div></div></div>
-    <div class="padisah-section yildirim-sec"><div class="padisah-header yildirim"><div class="padisah-no">4.</div><div class="padisah-info"><h3>YILDIRIM BAYEZİD (I. BAYEZİD)</h3><div class="donem">1389 – 1402</div></div></div><div class="padisah-body"><div class="intro-box">İstanbul'u kuşatan ilk padişah, Niğbolu Zaferi, Ankara Savaşı'nda yenilgi, Fetret Devri.</div><div class="savas-card"><div class="savas-name">Ankara Savaşı (1402)</div><ul><li>Timur karşısında yenildi, esir düştü.</li><li>Anadolu Türk birliği bozuldu.</li></ul></div><div class="fetret-box"><h4>Fetret Devri (1402-1413)</h4><p>Yıldırım'ın oğulları arasında taht kavgası.</p></div></div></div>
-    <div style="background:#fff;border-radius:14px;padding:24px;margin-top:20px;"><h3 style="text-align:center;">📊 Üç Padişahın Karşılaştırmalı Özeti</h3><table style="width:100%;">...</table></div>
+<div class="page2">
+
+  <div class="p2-header">
+    <div class="sub">10. Sınıf Tarih · 2. Ünite · MEB 2025-2026</div>
+    <h2>BEYLİKTEN DEVLETE OSMANLI SİYASETİ</h2>
+    <div style="margin-top:10px;font-family:'Crimson Pro',serif;font-size:15px;color:#d4b88a;">Orhan Bey &nbsp;·&nbsp; I. Murat (Hüdavendigâr) &nbsp;·&nbsp; Yıldırım Bayezid</div>
+    <div class="kaynak">Sayfa 126 – 147</div>
   </div>
+
+  <!-- ORHAN BEY -->
+  <div class="padisah-section orhan-sec">
+    <div class="padisah-header orhan">
+      <div class="padisah-no">2.</div>
+      <div class="padisah-info">
+        <h3>ORHAN BEY</h3>
+        <div class="donem">Saltanat Dönemi: 1324 – 1362</div>
+        <div class="lakap">Türkmen Hükümdarlarının En Ulusu</div>
+      </div>
+    </div>
+    <div class="padisah-body">
+      <div class="intro-box">Osman Bey'den sonra tahta geçen Orhan Bey, Osmanlı Beyliği'ni teşkilatlı bir devlet hâline getiren padişahtır. Ünlü seyyah İbn-i Batuta tarafından <strong>"Türkmen hükümdarlarının en ulusu"</strong> olarak nitelendirilmiştir. Orhan Bey dönemi, <strong>beylikten devlete geçişin tamamlandığı</strong> dönemdir.</div>
+      <div class="sec-title">⚔️ Önemli Fetihler ve Gelişmeler</div>
+      <div class="olay-grid">
+        <div class="olay-item"><div class="olay-tarih">1326</div><div class="olay-content"><strong>Bursa'nın Fethi:</strong> Bursa alınarak başkent yapıldı. Ekonomik ve siyasi güçlenme sağlandı.</div></div>
+        <div class="olay-item"><div class="olay-tarih">1329</div><div class="olay-content"><strong>Maltepe (Palekanon) Savaşı:</strong> Bizans İmparatoru Andronikos ile yapılan savaş kazanıldı. <em>Bizansla yapılan ilk meydan savaşıdır.</em></div></div>
+        <div class="olay-item"><div class="olay-tarih">1331</div><div class="olay-content"><strong>İznik'in Fethi:</strong> İznik alındı. Hristiyan halka hoşgörülü davranıldı. İznik, askeri üs olarak merkez yapıldı.</div></div>
+        <div class="olay-item"><div class="olay-tarih">1337</div><div class="olay-content"><strong>İzmit'in Fethi:</strong> İzmit alındı. Kocaeli Yarımadası Osmanlı egemenliğine girdi. Bizans'ın Anadolu'daki varlığına büyük ölçüde son verildi.</div></div>
+        <div class="olay-item"><div class="olay-tarih">1345</div><div class="olay-content"><strong>Karesioğulları'nın Alınması:</strong> <em>Osmanlı'nın ele geçirdiği ilk beylik.</em> Güney Marmara kıyıları ve Karesi donanması Osmanlı'ya katıldı. Anadolu Türk siyasi birliğinin sağlanmasında ilk adım atıldı.</div></div>
+        <div class="olay-item"><div class="olay-tarih">1352</div><div class="olay-content"><strong>Çimpe Kalesi'nin Alınması:</strong> Kantakuzen'e destek karşılığında Çimpe Kalesi alındı. <em>İlk kez Rumeli'ye geçildi.</em></div></div>
+        <div class="olay-item"><div class="olay-tarih">1354</div><div class="olay-content"><strong>Ankara'nın Alınması:</strong> Ankara Ahilerden alındı. İlk kez Karamanoğulları ile sınır komşusu olundu.</div></div>
+      </div>
+      <div class="sec-title">🏛️ Devlet Teşkilatı – İlkler</div>
+      <div class="ilkler-grid">
+        <div class="ilk-item"><div class="ilk-icon">📚</div><div>İlk Osmanlı medresesi <strong>İznik'te</strong> açıldı (1331). İlk müderris: <strong>Davud-i Kayseri</strong></div></div>
+        <div class="ilk-item"><div class="ilk-icon">⚖️</div><div>İlk <strong>adli örgüt</strong> (kadılık) kuruldu. İlk kadı: <strong>Dursun Fakih</strong></div></div>
+        <div class="ilk-item"><div class="ilk-icon">🏦</div><div>İlk <strong>vezirlik makamı</strong> oluşturuldu (Alaaddin Bey)</div></div>
+        <div class="ilk-item"><div class="ilk-icon">📋</div><div>İlk <strong>divan</strong> oluşturuldu (Padişah, Kadı, Müfti, Vezir)</div></div>
+        <div class="ilk-item"><div class="ilk-icon">⚔️</div><div>İlk <strong>düzenli ordu</strong> (Yaya ve Müsellem) kuruldu</div></div>
+        <div class="ilk-item"><div class="ilk-icon">🚢</div><div>Karesi donanmasıyla <strong>denizcilikte</strong> gelişme başladı</div></div>
+      </div>
+      <div class="sec-title">🏆 Dönemin Özeti</div>
+      <div class="ozet-row"><span class="ozet-badge">Beylikten Devlete Geçiş</span><span class="ozet-badge">İlk Rumeli Geçişi</span><span class="ozet-badge">İlk Medrese</span><span class="ozet-badge">İlk Düzenli Ordu</span><span class="ozet-badge">Karesioğulları – İlk Beylik</span></div>
+      <ul class="sonuc-list">
+        <li>Osmanlı Beyliği teşkilatlı bir devlet hâline getirilmiştir.</li>
+        <li>İznik'te ilk Osmanlı medresesi kurularak eğitime büyük önem verilmiştir.</li>
+        <li>Karesi Beyliği'nin alınmasıyla Anadolu Türk siyasi birliğinin sağlanmasında ilk adım atılmıştır.</li>
+        <li>Çimpe Kalesi'nin alınmasıyla ilk kez Rumeli'ye geçilmiş, Balkan fetihlerinin temeli atılmıştır.</li>
+        <li>İskân politikası ilk defa Orhan Bey zamanında Rumeli'ye geçilmesiyle uygulanmaya başlanmıştır.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- I. MURAT -->
+  <div class="padisah-section murat-sec">
+    <div class="padisah-header murat">
+      <div class="padisah-no">3.</div>
+      <div class="padisah-info">
+        <h3>I. MURAT (HÜDAVENDİGÂR)</h3>
+        <div class="donem">Saltanat Dönemi: 1362 – 1389</div>
+        <div class="lakap">Hüdavendigâr · Sultan ünvanını kullanan ilk padişah</div>
+      </div>
+    </div>
+    <div class="padisah-body">
+      <div class="intro-box">Orhan Bey'den sonra tahta geçen I. Murat, hem Anadolu'da hem de Rumeli'de büyük fetihleri gerçekleştirdi. <strong>"Sultan"</strong> ünvanını kullanan ilk Osmanlı hükümdarıdır. Devlet teşkilatında köklü yenilikler yaparak Osmanlı'yı gerçek bir imparatorluğa dönüştürdü. <strong>1389'da I. Kosova Savaşı'nda şehit edilen ilk Osmanlı padişahıdır.</strong></div>
+      <div class="sec-title">⚔️ Önemli Fetihler ve Savaşlar</div>
+      <div class="olay-grid">
+        <div class="olay-item"><div class="olay-tarih">1363</div><div class="olay-content"><strong>Edirne'nin Fethi (Sazlıdere Savaşı):</strong> Edirne alınarak başkent yapıldı. Lala Şahin Paşa ardından Filibe, Gümülcine, Çorlu, Malkara ve Burgaz'ı da aldı.</div></div>
+      </div>
+      <div class="savas-grid">
+        <div class="savas-card"><div class="savas-tarih">1364</div><div class="savas-name">I. Sırpsındığı Savaşı</div><ul><li>Papa V. Urban'ın çağrısıyla Macar, Sırp, Bulgar, Eflak ve Bosna kuvvetleri Haçlı birliği oluşturdu.</li><li>Hacı İlbeyi komutasında Osmanlılar kazandı.</li><li>Haçlılarla yapılan <strong>ilk savaş</strong>tır.</li><li>Edirne ve Batı Trakya Osmanlı hâkimiyetine geçti.</li><li>Bizans'ın Balkanlarla ilişkisi kesildi.</li></ul></div>
+        <div class="savas-card"><div class="savas-tarih">1371</div><div class="savas-name">Çirmen Savaşı</div><ul><li>Sırplarla yapılan savaş Osmanlı'nın zaferiyle sonuçlandı.</li><li>Makedonya kapıları Türklere açıldı.</li><li>Balkanlarda ikinci önemli mücadeledir.</li></ul></div>
+        <div class="savas-card"><div class="savas-tarih">1389</div><div class="savas-name">I. Kosova Savaşı</div><ul><li>Sırp, Bosna, Hırvat, Arnavutluk ve Karamanoğulları destekli Haçlı ordusu toplandı.</li><li>Osmanlılar galip geldi. Balkanlarda kesin yerleşme başladı.</li><li><strong>İlk kez top</strong> kullanıldı.</li><li>I. Murat savaş alanını gezerken <strong>Miloş Obiliç</strong> tarafından şehit edildi.</li><li><em>Savaş alanında ölen ilk Osmanlı padişahıdır.</em></li></ul></div>
+      </div>
+      <div class="sec-title">🗺️ Anadolu Politikası</div>
+      <ul class="sonuc-list">
+        <li>Germiyanoğulları'ndan <strong>çeyiz yoluyla</strong> Kütahya, Emet, Simav, Tavşanlı alındı.</li>
+        <li>Hamitoğulları'ndan <strong>satın alarak</strong> Akşehir, Beyşehir, Seydişehir, Yalvaç, Karaağaç alındı (80.000 altın).</li>
+        <li>Candaroğulları da alındı. Anadolu'daki başarılar Karamanoğulları ile arasını açtı.</li>
+      </ul>
+      <div class="sec-title">🏛️ Devlet Teşkilatındaki Yenilikler</div>
+      <div class="teskilat-grid">
+        <div class="teskilat-card"><strong>🗡️ Yeniçeri Ocağı</strong>Kapıkulu sisteminin esasını oluşturan Yeniçeri Ocağı Edirne'de kuruldu. İlk kez Devşirme Sistemi uygulandı.</div>
+        <div class="teskilat-card"><strong>🏛️ Kapıkulu Ocakları</strong>Çandarlı Halil Hayrettin Paşa'nın çabaları ile devşirme usulüne dayanan Kapıkulu Ocakları kuruldu.</div>
+        <div class="teskilat-card"><strong>🎓 Enderun Mektebi</strong>Saray eğitim kurumu olan Enderun Mektebi bu dönemde kuruldu.</div>
+        <div class="teskilat-card"><strong>📜 Tımar Sistemi</strong>Tımar sistemi ilk kez uygulandı. Toprak karşılığı asker yetiştirildi.</div>
+        <div class="teskilat-card"><strong>👑 Sultan Ünvanı</strong>"Sultan" ünvanını kullanan ilk Osmanlı hükümdarı I. Murat'tır.</div>
+        <div class="teskilat-card"><strong>👶 Sancağa Çıkma</strong>"Ülke padişah ve oğullarınındır" anlayışı benimsendi. Şehzadeler "lala" eşliğinde sancaklara gönderildi.</div>
+      </div>
+      <div class="vurgu-box"><div class="vurgu-icon">💡</div><div><strong>Önemli Not:</strong> I. Murat'tan itibaren "ülke hanedanın ortak malıdır" anlayışının yerini "ülke padişah ve oğullarınındır" anlayışı aldı. Bu uygulamanın amacı taht kavgalarının sınırlandırılması ve merkezî otoritenin korunmasıdır.</div></div>
+      <div class="sec-title">🏆 Dönemin Özeti</div>
+      <div class="ozet-row"><span class="ozet-badge">Edirne – Yeni Başkent</span><span class="ozet-badge">İlk Top Kullanımı</span><span class="ozet-badge">Yeniçeri Ocağı</span><span class="ozet-badge">Tımar Sistemi</span><span class="ozet-badge">Sultan Ünvanı</span></div>
+    </div>
+  </div>
+
+  <!-- YILDIRIM BAYEZİD -->
+  <div class="padisah-section yildirim-sec">
+    <div class="padisah-header yildirim">
+      <div class="padisah-no">4.</div>
+      <div class="padisah-info">
+        <h3>YILDIRIM BAYEZİD (I. BAYEZİD)</h3>
+        <div class="donem">Saltanat Dönemi: 1389 – 1402</div>
+        <div class="lakap">Yıldırım · Sultan-ı İklîm-i Rûm</div>
+      </div>
+    </div>
+    <div class="padisah-body">
+      <div class="intro-box">I. Murat'ın şehit düşmesinin ardından tahta geçen Yıldırım Bayezid, Anadolu'da büyük ölçüde Türk siyasi birliğini sağladı, İstanbul'u ilk kez kuşattı, Niğbolu'da Haçlı ordusunu bozguna uğrattı. Abbasi Halifesi kendisine <strong>"Sultan-ı İklîm-i Rûm"</strong> (Anadolu Ülkesinin Sultanı) unvanını verdi. Ancak 1402'de Timur'a yenilerek esir düştü ve <strong>Fetret Devri</strong> başladı.</div>
+      <div class="sec-title">🗺️ Anadolu Türk Birliğini Sağlama Faaliyetleri</div>
+      <div class="olay-grid">
+        <div class="olay-item"><div class="olay-tarih">1390</div><div class="olay-content"><strong>Hızlı Fetihler:</strong> I. Murat'ın vefatını fırsat bilen beyliklerin isyanı üzerine hızlı seferler düzenlendi. Saruhanoğulları, Aydınoğulları, Menteşeoğulları, Hamidoğulları ve Germiyanoğulları Osmanlı yönetimine bağlandı.</div></div>
+        <div class="olay-item"><div class="olay-tarih">1391</div><div class="olay-content"><strong>İstanbul'un İlk Kuşatması:</strong> İstanbul'u kuşatan <strong>ilk Osmanlı padişahı</strong> Yıldırım Bayezid'dir.</div></div>
+        <div class="olay-item"><div class="olay-tarih">1395</div><div class="olay-content"><strong>Anadolu Hisarı (Güzelce Hisar):</strong> Boğaz'ın Anadolu yakasına Anadolu Hisarı yaptırıldı. İstanbul'da Türk mahallesi ve cami yapılması sağlandı. Bizans Osmanlı üstünlüğünü tanıdı. <em>Bizansla yapılan ilk anlaşmadır.</em></div></div>
+      </div>
+      <div class="sec-title">⚔️ Önemli Savaşlar</div>
+      <div class="savas-grid">
+        <div class="savas-card"><div class="savas-tarih">1396</div><div class="savas-name">Niğbolu Savaşı</div><ul><li>Macar, Bulgar, Fransız, İngiliz, İskoç, Lehistan, Avusturya, İtalya, İsviçre, Rodos ve Eflak'lıların katıldığı Haçlı birliğine karşı Osmanlılar büyük zafer kazandı.</li><li>Bosna ve Eflak Osmanlılara bağlandı.</li><li>Abbasi Halifesi Yıldırım'a <strong>"Sultan-ı İklîm-i Rûm"</strong> unvanını verdi.</li></ul></div>
+        <div class="savas-card"><div class="savas-tarih">1402</div><div class="savas-name">Ankara Savaşı</div><ul><li>Osmanlı-Timur sınır olması ve "Türk Cihan Hâkimiyeti" çekişmesi.</li><li>Topraklarını kaybeden Anadolu beylerinin Timur'u kışkırtması.</li><li>Timur'un Sivas'ı yakıp yıkması.</li><li>Yıldırım Bayezid <strong>yenildi ve esir düştü.</strong></li><li>Anadolu Türk birliği bozuldu, beylikler yeniden kuruldu.</li><li>Yıldırım bir yıl sonra <strong>üzüntüsünden öldü.</strong></li></ul></div>
+      </div>
+      <div class="sec-title">📋 Ankara Savaşı Sonuçları</div>
+      <ul class="sonuc-list">
+        <li>Yıldırım Bayezid Timur'a yenildi ve esir düştü; bir yıl sonra üzüntüsünden öldü.</li>
+        <li>Anadolu Türk birliği bozuldu; beylikler yeniden kuruldu (Yavuz dönemine kadar sürdü).</li>
+        <li>Osmanlı Devleti yıkılma tehlikesi geçirdi.</li>
+        <li>Yıldırım'ın oğulları arasında taht kavgaları başladı.</li>
+        <li>Osmanlı Devleti <strong>Fetret Devri</strong>'ne (1402-1413) girdi.</li>
+        <li>Osmanlıların Balkanlardaki ilerlemeleri durdu. İstanbul'un alınışı gecikti.</li>
+        <li>Timur, Anadolu beylerine topraklarını geri verdi.</li>
+      </ul>
+      <div class="fetret-box">
+        <h4>⚠️ FETRET DEVRİ (1402 – 1413)</h4>
+        <p style="font-size:13.5px;margin-bottom:7px;">Ankara Savaşı'ndan sonra Yıldırım Bayezid'in dört oğlu arasında yaşanan 13 yıllık taht kavgası dönemidir.</p>
+        <ul>
+          <li><strong>Süleyman Çelebi</strong> → Rumeli'de padişahlığını ilan etti.</li>
+          <li><strong>İsa Çelebi</strong> → Balıkesir'de padişahlığını ilan etti.</li>
+          <li><strong>Musa Çelebi</strong> → Bursa'da padişahlığını ilan etti.</li>
+          <li><strong>Çelebi Mehmet</strong> → Amasya'da padişahlığını ilan etti.</li>
+        </ul>
+        <p style="font-size:13px;margin-top:7px;color:#8b1a1a;"><strong>Sonuç:</strong> Mücadele sonunda <strong>Çelebi Mehmet (I. Mehmet)</strong> 1413'te Osmanlı tahtına tek başına oturdu. "Osmanlı'nın ikinci kurucusu" sayılır.</p>
+      </div>
+      <div class="sec-title">🏆 Dönemin Özeti</div>
+      <div class="ozet-row"><span class="ozet-badge">İstanbul'u Kuşatan İlk Padişah</span><span class="ozet-badge">Niğbolu Zaferi</span><span class="ozet-badge">Anadolu Birliği</span><span class="ozet-badge">Ankara Yenilgisi</span><span class="ozet-badge">Fetret Devri Başlangıcı</span></div>
+      <div class="vurgu-box"><div class="vurgu-icon">⚡</div><div><strong>"Yıldırım"</strong> lakabının sebebi: Şehzadelik döneminden itibaren katıldığı savaşlarda gösterdiği <em>cesaret ve süratli hareketlerdir.</em> Bir yıl içinde Anadolu'dan Rumeli'ye yedi defa geçmesiyle de bu lakabın hakkını vermiştir.</div></div>
+    </div>
+  </div>
+
+  <!-- KARŞILAŞTIRMA TABLOSU -->
+  <div style="background:#fff;border-radius:14px;padding:24px 28px;box-shadow:var(--shadow2);border:1px solid var(--border2);">
+    <h3 style="font-family:'Playfair Display',serif;font-size:17px;text-align:center;margin-bottom:18px;color:#1c1a16;">📊 Üç Padişahın Karşılaştırmalı Özeti</h3>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="background:#1c1a16;color:#fff;">
+            <th style="padding:9px 13px;text-align:left;">Konu</th>
+            <th style="padding:9px 13px;text-align:left;color:#f0c080;">Orhan Bey</th>
+            <th style="padding:9px 13px;text-align:left;color:#90b8f0;">I. Murat</th>
+            <th style="padding:9px 13px;text-align:left;color:#90d8a0;">Yıldırım Bayezid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#fafaf8;"><td style="padding:8px 13px;font-weight:700;border-bottom:1px solid #eee;">Dönem</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">1324 – 1362</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">1362 – 1389</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">1389 – 1402</td></tr>
+          <tr><td style="padding:8px 13px;font-weight:700;border-bottom:1px solid #eee;">Başkent</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Bursa (1326)</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Edirne (1363)</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Edirne</td></tr>
+          <tr style="background:#fafaf8;"><td style="padding:8px 13px;font-weight:700;border-bottom:1px solid #eee;">Önemli Savaş</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Maltepe (1329)</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">I. Kosova (1389)</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Niğbolu (1396), Ankara (1402)</td></tr>
+          <tr><td style="padding:8px 13px;font-weight:700;border-bottom:1px solid #eee;">Ordu Yeniliği</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Yaya ve Müsellem (ilk düzenli ordu)</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Yeniçeri Ocağı, Kapıkulu</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Top kullanımı (Niğbolu)</td></tr>
+          <tr style="background:#fafaf8;"><td style="padding:8px 13px;font-weight:700;border-bottom:1px solid #eee;">Toprak Sistemi</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">–</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Tımar sistemi (ilk uygulama)</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Tımar sistemi devam</td></tr>
+          <tr><td style="padding:8px 13px;font-weight:700;border-bottom:1px solid #eee;">İlk Beylik</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Karesioğulları (1345)</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Germiyan, Hamit (çeyiz/satın alma)</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Saruhan, Aydın, Menteşe… (kuvvete)</td></tr>
+          <tr style="background:#fafaf8;"><td style="padding:8px 13px;font-weight:700;border-bottom:1px solid #eee;">Rumeli</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">İlk geçiş (Çimpe, 1352)</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">Edirne, Makedonya</td><td style="padding:8px 13px;border-bottom:1px solid #eee;">İstanbul kuşatmaları</td></tr>
+          <tr><td style="padding:8px 13px;font-weight:700;">Dönem Sonu</td><td style="padding:8px 13px;">1362'de vefat etti</td><td style="padding:8px 13px;">1389'da Kosova'da şehit edildi</td><td style="padding:8px 13px;">1402'de esir düştü; Fetret Devri başladı</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:18px;font-size:11.5px;color:#aaa;">
+    MEB 10. Sınıf Tarih Ders Kitabı 2025-2026 · 2. Ünite: Beylikten Devlete Osmanlı Siyaseti (1302-1453) · Sayfa 126-147
+  </div>
+
 </div>
 </div>
 
 <script>
-// ----- ÖZET METİNLERİ (kısa, orta, detay) -----
-const ozetMetinleri = {
-  kisa: {
-    tab1: `<div class="ozet-notu"><div class="ozet-baslik-ozel">📌 KISA ÖZET – Ordu, Toprak, Hukuk (Önemli Kısımlar)</div>
-    <strong>• Ordu:</strong> Orhan Bey → ilk düzenli ordu (Yaya-Müsellem). I. Murat → Pençik Sistemi, Yeniçeri Ocağı. II. Murat → Devşirme Sistemi.<br>
-    <strong>• Yeniçeriler:</strong> gayrimüslim çocuk, ulufe maaş, evlenme yasağı.<br>
-    <strong>• Tımar Sistemi:</strong> asker yetiştirme karşılığı toprak. Has (100.000+ akçe), Zeamet, Tımar.<br>
-    <strong>• Hukuk:</strong> Şer'i + Örfi, kadılar, Kazasker yargı başı.<br>
-    <strong>• İskan & İstimalet:</strong> Balkanlar'da Türk yerleşimi + hoşgörü politikası.<br>
-    <strong>• İlim:</strong> İlk medrese İznik Orhaniye (1331), Şeyh Edebali, Davud-i Kayseri.</div>`,
-    tab2: `<div class="ozet-notu"><div class="ozet-baslik-ozel">👑 KISA ÖZET – Padişahlar (Önemli Kısımlar)</div>
-    <strong>Orhan Bey (1324-1362):</strong> Bursa başkent, ilk medrese, ilk düzenli ordu, Karesioğulları (ilk beylik), Rumeli'ye ilk geçiş (Çimpe Kalesi).<br>
-    <strong>I. Murat (1362-1389):</strong> Edirne başkent, Yeniçeri Ocağı, Tımar sistemi, I. Kosova (şehit olan ilk padişah, ilk top kullanımı).<br>
-    <strong>Yıldırım Bayezid (1389-1402):</strong> Anadolu birliği sağlama, İstanbul'u ilk kuşatan, Niğbolu Zaferi (Sultan-ı İklîm-i Rûm), Ankara Savaşı'nda Timur'a yenilgi → Fetret Devri (1402-1413).</div>`
-  },
-  orta: {
-    tab1: `<div class="ozet-notu"><div class="ozet-baslik-ozel">📖 ORTA ÖZET – Ordu, Toprak Sistemi ve Hukuk</div>
-    <strong>Ordu Teşkilatı:</strong> Osman Bey: Aşiret kuvvetleri. Orhan Bey: Yaya-Müsellem (ilk düzenli ordu). I. Murat: Pençik sistemi (savaş esirlerinin 1/5'i asker) ve Yeniçeri Ocağı'nın kuruluşu. II. Murat: Devşirme sistemine geçiş.<br>
-    Kapıkulu: Yeniçeriler, Cebeciler, Topçular, Kapıkulu Süvarileri. Eyalet askerleri: Tımarlı sipahiler, Akıncılar, Azaplar.<br>
-    <strong>Toprak Sistemi:</strong> Miri arazi (devlete ait), Mülk (şahıs), Öşri/Haraci toprak ayrımı. Dirlik çeşitleri: Has, Zeamet, Tımar. Tımar sistemi sayesinde devlet hazineden para harcamadan asker yetiştirmiştir.<br>
-    <strong>Hukuk:</strong> Şeri hukuk (İslam esaslı) ve Örfi hukuk (gelenek, padişah kanunları). Kadılar hem yargı hem belediye görevi yapar. Kazasker en üst yargı görevlisi.<br>
-    İskân ve İstimalet: Balkanlarda kalıcı fetih için Türk göçü ve yerel halka hoşgörü.<br>
-    İlk medrese İznik (Orhan Gazi), ilk darüşşifa Yıldırım Külliyesi.</div>`,
-    tab2: `<div class="ozet-notu"><div class="ozet-baslik-ozel">📖 ORTA ÖZET – Orhan, I. Murat, Yıldırım</div>
-    <strong>Orhan Bey:</strong> Bursa'nın fethi (1326) ile başkent yapıldı. Maltepe Savaşı (1329) Bizans'a karşı ilk meydan savaşı. İznik, İzmit fethedildi. Karesioğulları'nın alınmasıyla ilk beylik toprakları katıldı ve donanma elde edildi. Çimpe Kalesi (1352) ile Rumeli'ye ilk geçiş. İlk medrese (İznik), ilk kadı Dursun Fakih, ilk vezir Alaaddin Paşa.<br>
-    <strong>I. Murat:</strong> Edirne'nin fethi (1363) yeni başkent. I. Sırpsındığı (1364) Haçlılarla ilk savaş. Çirmen (1371), I. Kosova (1389) Balkanların kesin fethi. Bu savaşta ilk kez top kullanıldı, padişah şehit düştü. Yeniçeri Ocağı, Kapıkulu ocakları, Enderun Mektebi, Tımar sistemi bu dönemde başladı. "Sultan" unvanı ilk kez kullanıldı.<br>
-    <strong>Yıldırım Bayezid:</strong> Anadolu beyliklerini hızla Osmanlı'ya bağlayarak Anadolu Türk birliğini sağladı. İstanbul'u ilk kuşatan padişah oldu (1391). Niğbolu Savaşı (1396) ile Haçlı ordusunu ağır yenilgiye uğrattı, Abbasi Halifesi "Sultan-ı İklîm-i Rûm" unvanını verdi. 1402 Ankara Savaşı'nda Timur'a yenilerek esir düştü, Osmanlı Fetret Devri'ne girdi (1402-1413).</div>`
-  },
-  detay: {
-    tab1: `<div class="ozet-notu"><div class="ozet-baslik-ozel">📚 DETAYLI ÖZET – Osmanlı Ordu, Toprak ve Hukuk (Tam Kapsamlı)</div>
-    <strong>Ordu Gelişimi:</strong> Osman Bey dönemi: Alpler, gaziler, aşiret kuvvetleri. Orhan Bey 1329'da Yaya ve Müsellem adıyla ücretli piyade ve atlı birlikleri kurarak ilk düzenli orduyu oluşturdu. I. Murat Pençik sistemi (esirlerin beşte biri) ile Kapıkulu'nun temelini attı; Yeniçeri Ocağı Edirne'de kuruldu. II. Murat ise devşirme sistemini resmileştirdi. Kapıkulu Piyadeleri (Yeniçeri, Cebeciler, Topçular, Lağımcılar, Humbaracılar, Bostancılar) ve Kapıkulu Süvarileri (Silahdarlar, Sipahiler, Ulufeciler, Garipler) merkez ordusuydu. Eyalet askerleri: Tımarlı sipahiler (atlı), Akıncılar (keşif), Azaplar (öncü), Yayalar, Müsellemler, Yörükler, Deliler. Yardımcı kuvvetler bağlı devlet birlikleri.<br>
-    <strong>Toprak Sistemi:</strong> Miri arazi (devlet mülkiyeti, işleme hakkı reayaya verilmiş), Mülk arazi (kişisel). Öşri (Müslüman mülkü), Haraci (gayrimüslim mülkü). Dirlikler: Has (>100.000 akçe, yüksek devlet adamlarına), Zeamet (20.000-100.000 akçe, orta düzey), Tımar (19.999 akçeye kadar, sipahilere). Diğer toprak türleri: Paşmalık (padişah ailesi kadınları), Ocaklık (kale muhafızları), Malikâne, Yurtluk, Vakıf, Mukataa. Tımar Sistemi sayesinde asker ihtiyacı karşılanır, üretim sürekliliği sağlanır, devlet hazinesi rahatlar.<br>
-    <strong>Hukuk:</strong> Şer’i hukuk (Kur'an ve Sünnet) temel; Örfi hukuk (padişah kanunları, töre). Kadılar hem adli hem idari görevler yürütür. Kazasker Divan-ı Hümayun üyesi, kadı atamaları, medrese denetimi, din kurumlarından sorumlu. Osmanlı'da ilk kadı Dursun Fakih.<br>
-    <strong>İskân-İstimalet:</strong> Anadolu'daki göçebe Türkmenleri Balkanlar'a yerleştirme (İskân) ve gayrimüslim halka din, dil, kültür özgürlüğü (İstimalet) politikaları fetihlerin kalıcılığını sağlamıştır.<br>
-    <strong>İlim ve İrfan:</strong> İznik Orhaniye Medresesi (1331) ilk Osmanlı medresesi, müderris Davud-i Kayseri. Şeyh Edebali, Dursun Fakih, Emir Sultan, Hacı Bayram Veli gibi âlimler toplumu şekillendirmiştir. Vakıflar eğitim, sağlık ve sosyal yardımı desteklemiştir.</div>`,
-    tab2: `<div class="ozet-notu"><div class="ozet-baslik-ozel">📚 DETAYLI ÖZET – Orhan Bey, I. Murat, Yıldırım Bayezid Dönemleri</div>
-    <strong>ORHAN BEY (1324-1362):</strong> Beylikten devlete geçişin tamamlandığı dönem. Bursa (1326) başkent yapıldı. Maltepe (Palekanon) 1329 – Bizans'a karşı ilk meydan savaşı. İznik 1331 (medrese kuruldu), İzmit 1337 ile Kocaeli alındı. Karesioğulları'nın 1345'te alınmasıyla ilk beylik toprakları katıldı ve donanma gücüne kavuşuldu. 1352'de Çimpe Kalesi ile Rumeli'ye geçildi, Balkan fetihlerinin kapısı açıldı. İlk vezir (Alaaddin Paşa), ilk divan, ilk düzenli ordu (Yaya-Müsellem), ilk medrese (İznik), ilk kadı (Dursun Fakih). İbn-i Batuta kendisini "Türkmen hükümdarlarının en ulusu" olarak tanımlamıştır.<br>
-    <strong>I. MURAT (1362-1389):</strong> "Sultan" unvanını kullanan ilk Osmanlı padişahı. Edirne (1363) yeni başkent yapıldı. I. Sırpsındığı (1364) Haçlılarla ilk savaş – zafer. Çirmen (1371) Makedonya'nın kapıları açıldı. I. Kosova (1389) Sırp, Bosna, Arnavut ve Karamanoğulları destekli Haçlı ordusuna karşı büyük zafer; ilk kez top kullanıldı. Ancak savaş sonrası Miloş Obiliç tarafından şehit edildi (savaş alanında ölen ilk padişah). Yeniçeri Ocağı, Kapıkulu ocakları, Enderun Mektebi, Tımar sistemi bu dönemde kuruldu. Anadolu'da Germiyanoğulları'ndan çeyiz yoluyla, Hamitoğulları'ndan satın alarak toprak kazanıldı. "Ülke padişah ve oğullarınındır" anlayışı benimsendi.<br>
-    <strong>YILDIRIM BAYEZİD (1389-1402):</strong> I. Murat'ın şehadeti üzerine tahta geçti. Anadolu'da Saruhan, Aydın, Menteşe, Hamid, Germiyan gibi beylikleri hızla ilhak ederek Anadolu Türk siyasi birliğini sağladı. 1391'de İstanbul'u ilk kez kuşattı, Anadolu Hisarı'nı yaptırdı. Niğbolu Savaşı (1396) – Macar, Fransız, İngiliz, İtalyan vb. Haçlı ordusunu imha etti; bu zafer sonrası Abbasi Halifesi "Sultan-ı İklîm-i Rûm" unvanını verdi. 1402 Ankara Savaşı'nda Timur'a yenildi ve esir düştü. Bu yenilgiyle Anadolu birliği dağıldı, beylikler yeniden kuruldu, Osmanlı Fetret Devri (1402-1413) başladı. Yıldırım bir yıl sonra esaret altında öldü. Fetret'te Süleyman, İsa, Musa ve Çelebi Mehmet mücadelesi sonunda I. Mehmet ikinci kurucu olarak 1413'te tahta çıktı.</div>`
-  }
-};
-
-let aktifOzetTip = null; // "kisa", "orta", "detay" veya null (orijinal)
-let currentTab = "tab1";
-
-// Özet gösterme fonksiyonu (mevcut sekmeye göre)
-function showOzet(tip) {
-  aktifOzetTip = tip;
-  const container1 = document.getElementById('ozetContainer1');
-  const container2 = document.getElementById('ozetContainer2');
-  const orijinalDiv1 = document.getElementById('orijinalIcerik1');
-  const orijinalDiv2 = document.getElementById('orijinalIcerik2');
-  
-  if (tip === "kisa" || tip === "orta" || tip === "detay") {
-    // özeti göster, orijinali gizle
-    if (currentTab === "tab1") {
-      container1.innerHTML = ozetMetinleri[tip].tab1;
-      container1.style.display = "block";
-      orijinalDiv1.style.display = "none";
-    } else {
-      container2.innerHTML = ozetMetinleri[tip].tab2;
-      container2.style.display = "block";
-      orijinalDiv2.style.display = "none";
-    }
-  } 
-}
-
-// Ana kağıda dönüş (orijinal içerik)
-function anaKagitGoster() {
-  aktifOzetTip = null;
-  const container1 = document.getElementById('ozetContainer1');
-  const container2 = document.getElementById('ozetContainer2');
-  const orijinalDiv1 = document.getElementById('orijinalIcerik1');
-  const orijinalDiv2 = document.getElementById('orijinalIcerik2');
-  if (currentTab === "tab1") {
-    container1.style.display = "none";
-    container1.innerHTML = "";
-    orijinalDiv1.style.display = "block";
-  } else {
-    container2.style.display = "none";
-    container2.innerHTML = "";
-    orijinalDiv2.style.display = "block";
-  }
-}
-
-// tab geçişlerinde özet durumunu koru veya sıfırla
 function switchTab(tabId, btn) {
-  currentTab = tabId;
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById(tabId).classList.add('active');
   btn.classList.add('active');
-  
-  // özet durumunu yeniden uygula (eğer aktif özet varsa)
-  const container1 = document.getElementById('ozetContainer1');
-  const container2 = document.getElementById('ozetContainer2');
-  const orijinalDiv1 = document.getElementById('orijinalIcerik1');
-  const orijinalDiv2 = document.getElementById('orijinalIcerik2');
-  
-  if (aktifOzetTip) {
-    if (tabId === "tab1") {
-      container1.innerHTML = ozetMetinleri[aktifOzetTip].tab1;
-      container1.style.display = "block";
-      orijinalDiv1.style.display = "none";
-      container2.style.display = "none";
-      orijinalDiv2.style.display = "block";
-    } else {
-      container2.innerHTML = ozetMetinleri[aktifOzetTip].tab2;
-      container2.style.display = "block";
-      orijinalDiv2.style.display = "none";
-      container1.style.display = "none";
-      orijinalDiv1.style.display = "block";
-    }
-  } else {
-    // orijinal göster
-    if (tabId === "tab1") {
-      container1.style.display = "none";
-      container1.innerHTML = "";
-      orijinalDiv1.style.display = "block";
-      container2.style.display = "none";
-      orijinalDiv2.style.display = "block";
-    } else {
-      container2.style.display = "none";
-      container2.innerHTML = "";
-      orijinalDiv2.style.display = "block";
-      container1.style.display = "none";
-      orijinalDiv1.style.display = "block";
-    }
-  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-// MENÜ İŞLEMLERİ
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const menuPanel = document.getElementById('menuPanel');
-const closePanelBtn = document.getElementById('closePanelBtn');
-
-function toggleMenu(e) {
-  e.stopPropagation();
-  menuPanel.classList.toggle('show');
-}
-hamburgerBtn.addEventListener('click', toggleMenu);
-closePanelBtn.addEventListener('click', () => {
-  menuPanel.classList.remove('show');
-});
-document.addEventListener('click', function(e) {
-  if (!hamburgerBtn.contains(e.target) && !menuPanel.contains(e.target)) {
-    menuPanel.classList.remove('show');
-  }
-});
-
-// Özet butonları
-document.querySelectorAll('.ozet-buton[data-ozet-tip]').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    const tip = btn.getAttribute('data-ozet-tip');
-    showOzet(tip);
-    menuPanel.classList.remove('show');
-    // butonlara aktif görünüm
-    document.querySelectorAll('.ozet-buton').forEach(b => b.classList.remove('aktif-ozet'));
-    btn.classList.add('aktif-ozet');
-  });
-});
-document.getElementById('anaKagitBtn').addEventListener('click', () => {
-  anaKagitGoster();
-  menuPanel.classList.remove('show');
-  document.querySelectorAll('.ozet-buton').forEach(b => b.classList.remove('aktif-ozet'));
-});
-
-// Başlangıçta orijinal içerik görünsün
-window.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('ozetContainer1').style.display = "none";
-  document.getElementById('ozetContainer2').style.display = "none";
-  document.getElementById('orijinalIcerik1').style.display = "block";
-  document.getElementById('orijinalIcerik2').style.display = "block";
-  aktifOzetTip = null;
-});
 </script>
 </body>
 </html>
